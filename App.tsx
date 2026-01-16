@@ -155,7 +155,6 @@ export default function App() {
       case 'intro':
         return (
           <div className="animate-in fade-in duration-700 max-w-3xl mx-auto py-4 lg:py-6">
-            {/* Header Decoration */}
             <div className="flex items-center justify-between mb-10 border-b border-gray-100 pb-4">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
@@ -172,7 +171,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Narrative - Tighter and Well Aligned */}
             <div className="space-y-10">
               <section className="relative">
                 <h1 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] mb-6">
@@ -271,19 +269,23 @@ export default function App() {
                               key={service.id}
                               onClick={() => toggleService(service.id)}
                               className={`
-                                cursor-pointer px-4 py-3 rounded-xl border transition-all flex items-center gap-3 active:scale-[0.98]
+                                cursor-pointer px-4 py-3 rounded-xl border transition-all duration-300 flex items-center gap-3 select-none
                                 ${checkedServices[service.id] 
-                                  ? 'bg-black border-black text-white shadow-lg shadow-black/20 scale-[1.02]' 
-                                  : 'bg-white border-gray-100 hover:border-black hover:shadow-md'}
+                                  ? 'bg-black border-black text-white shadow-xl shadow-black/30 scale-[1.05]' 
+                                  : 'bg-white border-gray-100 hover:border-black hover:shadow-md active:scale-95'}
                               `}
+                              style={{
+                                transform: checkedServices[service.id] ? 'scale(1.05)' : 'scale(1)',
+                                transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                              }}
                             >
                               <div className={`
-                                w-5 h-5 rounded-md border flex items-center justify-center transition-colors
-                                ${checkedServices[service.id] ? 'bg-white border-white' : 'border-gray-200'}
+                                w-5 h-5 rounded-md border flex items-center justify-center transition-all duration-300
+                                ${checkedServices[service.id] ? 'bg-white border-white rotate-0' : 'border-gray-200 rotate-45'}
                               `}>
-                                {checkedServices[service.id] && <Check className="w-3 h-3 text-black" />}
+                                {checkedServices[service.id] && <Check className="w-3 h-3 text-black stroke-[3]" />}
                               </div>
-                              <span className="text-xs font-bold truncate">{service.name}</span>
+                              <span className="text-xs font-black truncate">{service.name}</span>
                             </div>
                           ))}
                         </div>
@@ -304,18 +306,25 @@ export default function App() {
               <h2 className="text-4xl font-bold tracking-tight">Глоссарий терминов</h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
               {GLOSSARY_CATEGORIES.map((cat, ci) => (
-                <div key={ci} className="space-y-6">
-                  <div className="flex items-center gap-3 border-b-2 border-black pb-2">
-                    <span className="text-[10px] font-mono font-black text-gray-400">0{ci + 1}</span>
-                    <h3 className="text-sm font-black uppercase tracking-wider">{cat.title}</h3>
+                <div 
+                  key={ci} 
+                  className="break-inside-avoid-column mb-8 bg-white/50 border border-gray-100 p-6 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 border-b-2 border-black pb-3 mb-6">
+                    <h3 className="text-xs font-black uppercase tracking-widest">{cat.title}</h3>
                   </div>
                   <div className="space-y-6">
                     {cat.terms.map((item, ti) => (
                       <div key={ti} className="group">
-                        <h4 className="font-bold text-sm mb-1 group-hover:text-black transition-colors">{item.t}</h4>
-                        <p className="text-xs text-gray-500 leading-relaxed">{item.d}</p>
+                        <h4 className="font-bold text-[13px] mb-1 group-hover:text-black transition-colors flex items-center gap-2">
+                          <span className="w-1 h-1 bg-black/20 rounded-full" />
+                          {item.t}
+                        </h4>
+                        <p className="text-[12px] text-gray-500 leading-relaxed font-medium pl-3">
+                          {item.d}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -403,20 +412,6 @@ export default function App() {
                 </div>
               ))}
             </div>
-
-            <div className="mt-24 p-12 bg-black rounded-[4rem] text-white overflow-hidden relative group">
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-1000">
-                <Cpu className="w-64 h-64" />
-              </div>
-              <div className="relative z-10 max-w-2xl">
-                <h3 className="text-4xl font-black mb-6 leading-tight">Ваш новый уровень — это не просто знания, а работающая система.</h3>
-                <div className="flex flex-wrap gap-4 mt-8">
-                  <div className="px-6 py-3 bg-white/10 rounded-full border border-white/20 text-xs font-mono uppercase tracking-widest">30+ Примеров</div>
-                  <div className="px-6 py-3 bg-white/10 rounded-full border border-white/20 text-xs font-mono uppercase tracking-widest">40+ Сервисов</div>
-                  <div className="px-6 py-3 bg-white/10 rounded-full border border-white/20 text-xs font-mono uppercase tracking-widest">Коммьюнити</div>
-                </div>
-              </div>
-            </div>
           </div>
         );
 
@@ -439,7 +434,6 @@ export default function App() {
             </div>
 
             <div className="flex flex-col lg:flex-row gap-12 flex-1">
-              {/* FAQ Categories Sidebar */}
               <div className="lg:w-72 space-y-2">
                 <p className="text-[10px] font-mono font-black text-gray-400 uppercase tracking-widest mb-4 ml-2">Разделы:</p>
                 {faqCategories.map((category) => (
@@ -462,7 +456,6 @@ export default function App() {
                 ))}
               </div>
 
-              {/* FAQ Questions List */}
               <div className="flex-1 space-y-4">
                 <div className="mb-6">
                   <h3 className="text-xl font-black flex items-center gap-3">
@@ -516,7 +509,6 @@ export default function App() {
       case 'essentials':
         return (
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
-            {/* Header Area */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -528,7 +520,6 @@ export default function App() {
                 <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Оплата <br/>сервисов</h2>
               </div>
               
-              {/* Manifest Area */}
               <div className="bg-white border-2 border-gray-100 p-8 rounded-[2.5rem] max-w-xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
                    <Users className="w-24 h-24 text-black" />
@@ -542,14 +533,13 @@ export default function App() {
                     "Если у вас нет иностранной карты или друзей за границей, готовых помочь с оплатой, мы собрали для вас этот список решений."
                   </p>
                   <p className="text-[11px] text-gray-500 leading-relaxed">
-                    Эта база знаний сформирована силами нашего комьюнити. Пользуйтесь, но помните: все действия вы совершаете на свой страх и риск. Ни посредники, ни сами сервисы не дают 100% гарантий. Бывали случаи блокировок аккаунтов. Тем не менее, это рабочие инструменты, которыми многие пользуются прямо сейчас.
+                    Эта база знаний сформирована силами нашего комьюнити. Пользуйтесь, но помните: все действия вы совершаете на свой страх и риск. Ни посредники, ни сами сервисы не дают 100% гарантий.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Section 1: Buying Accounts */}
               <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center">
@@ -560,13 +550,11 @@ export default function App() {
                     <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Самый простой путь</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-500 mb-8">Платите рубли посреднику — получаете доступ или подписку на ваш аккаунт.</p>
                 <div className="space-y-3">
                   {[
                     { name: 'Plati.market', desc: 'Маркетплейс цифровых товаров', url: 'https://plati.market' },
                     { name: 'GGSel', desc: 'Каталог продавцов и активаций', url: 'https://ggsel.net' },
-                    { name: 'FunPay', desc: 'Биржа аккаунтов (id 16249031)', url: 'https://funpay.com' },
-                    { name: 'Oplatym', desc: 'Специалисты по подпискам', url: 'https://oplatym.ru' },
+                    { name: 'FunPay', desc: 'Биржа аккаунтов', url: 'https://funpay.com' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div>
@@ -579,7 +567,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Section 2: Virtual Cards */}
               <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center">
@@ -590,12 +577,10 @@ export default function App() {
                     <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Для контроля баланса</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-500 mb-8">Выпуск предоплаченных карт Visa/Mastercard для самостоятельной оплаты.</p>
                 <div className="space-y-3">
                   {[
-                    { name: 'Zarub.io', desc: 'Виртуальные карты для арбитража и сервисов', url: 'https://zarub.io' },
+                    { name: 'Zarub.io', desc: 'Карты для арбитража и сервисов', url: 'https://zarub.io' },
                     { name: 'Zambulay', desc: 'Предоплаченные карты Visa/Mastercard', url: 'https://zambulay.com' },
-                    { name: 'ZeePay (TR)', desc: 'Турецкий финтех-кошелек', url: 'https://www.google.com/search?q=zeepay.com.tr' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div>
@@ -603,104 +588,6 @@ export default function App() {
                         <p className="text-[10px] text-gray-400 group-hover:text-gray-300">{item.desc}</p>
                       </div>
                       <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
-                    </a>
-                  ))}
-                  <div className="p-4 bg-orange-50 rounded-2xl mt-4 border border-orange-100">
-                    <p className="text-[10px] font-bold text-orange-600 uppercase mb-1 flex items-center gap-2"><Info className="w-3 h-3"/> Нюанс по ZeePay</p>
-                    <a href="https://4pda.to/forum/index.php?showtopic=1073836" target="_blank" rel="noreferrer" className="text-[10px] text-orange-800 underline decoration-orange-300">Изучите ветку обсуждения на 4PDA</a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Section 3: AI without VPN */}
-              <div className="bg-black text-white rounded-[2.5rem] p-10 lg:col-span-2">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-                  <div className="max-w-md">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
-                        <Globe className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-black">3. Доступ без VPN</h3>
-                        <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Российские сервисы-прокладки</p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-400 leading-relaxed mb-8">
-                      Если вам не принципиально иметь аккаунт именно на сайте OpenAI или Anthropic. Оплата российскими картами.
-                    </p>
-                    <a href="https://gptunnel.ru" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
-                      ОТКРЫТЬ GPTUNNEL.RU <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-                  <div className="flex-1 grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                      <p className="text-[10px] font-mono uppercase tracking-widest text-gray-500 mb-2">Модели:</p>
-                      <p className="text-xs font-bold">ChatGPT, Claude, MJ</p>
-                    </div>
-                    <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                      <p className="text-[10px] font-mono uppercase tracking-widest text-gray-500 mb-2">Оплата:</p>
-                      <p className="text-xs font-bold">Карты РФ (МИР)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Section 4: Hacks & Guides */}
-              <div className="lg:col-span-2 space-y-8">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-black uppercase tracking-tighter">Полезные инструкции и лайфхаки</h3>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* ChatGPT Go */}
-                  <div className="bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl transition-all">
-                    <div className="flex items-center gap-3 mb-6">
-                      <Gift className="w-5 h-5 text-black" />
-                      <span className="text-[10px] font-mono font-black uppercase tracking-widest bg-gray-100 px-2 py-1 rounded">HACK</span>
-                    </div>
-                    <h4 className="font-black text-lg mb-4">ChatGPT Go (1 год бесплатно)</h4>
-                    <p className="text-xs text-gray-500 leading-relaxed mb-6">Регистрируйте через VPN Индии. Тариф быстрее бесплатного и дает приоритет.</p>
-                  </div>
-
-                  {/* Perplexity */}
-                  <div className="bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl transition-all">
-                    <div className="flex items-center gap-3 mb-6">
-                      <Coffee className="w-5 h-5 text-black" />
-                      <span className="text-[10px] font-mono font-black uppercase tracking-widest bg-gray-100 px-2 py-1 rounded">DISCOUNT</span>
-                    </div>
-                    <h4 className="font-black text-lg mb-4">Perplexity Pro дешево</h4>
-                    <p className="text-xs text-gray-500 leading-relaxed mb-6">Лот на Plati.market (промо-тариф на год за ~$35, который рекомендовали в чате).</p>
-                    <a href="https://plati.market" target="_blank" rel="noreferrer" className="text-[10px] font-bold text-black flex items-center gap-1 hover:underline">Искать на Plati <ExternalLink className="w-3 h-3"/></a>
-                  </div>
-
-                  {/* Google AI Studio */}
-                  <div className="bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl transition-all">
-                    <div className="flex items-center gap-3 mb-6">
-                      <FileText className="w-5 h-5 text-black" />
-                      <span className="text-[10px] font-mono font-black uppercase tracking-widest bg-gray-100 px-2 py-1 rounded">GUIDE</span>
-                    </div>
-                    <h4 className="font-black text-lg mb-4">Google AI Studio ($300)</h4>
-                    <p className="text-xs text-gray-500 leading-relaxed mb-6">Как активировать бесплатный баланс для разработчиков в консоли Google.</p>
-                    <a href="https://docs.google.com/document/d/1O0Eskp9yqYn0PizE9n-u-f0uE6_9U1k9/" target="_blank" rel="noreferrer" className="text-[10px] font-bold text-black flex items-center gap-1 hover:underline">Читать инструкцию <ExternalLink className="w-3 h-3"/></a>
-                  </div>
-
-                  {/* External Articles */}
-                  {[
-                    { title: 'Настройка в РФ', site: 'VC.ru', url: 'https://vc.ru/u/1271112-ai-news/637021-kak-zaregistrirovatsya-v-chatgpt-v-rossii' },
-                    { title: 'Claude Code без банов', site: 'Habr', url: 'https://habr.com/ru/articles/724912/' }
-                  ].map((art, i) => (
-                    <a key={i} href={art.url} target="_blank" rel="noreferrer" className="bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl transition-all flex flex-col justify-between group">
-                      <div>
-                        <div className="flex items-center gap-3 mb-6">
-                          <BookOpen className="w-5 h-5 text-black" />
-                          <span className="text-[10px] font-mono font-black uppercase tracking-widest bg-gray-100 px-2 py-1 rounded">{art.site}</span>
-                        </div>
-                        <h4 className="font-black text-lg mb-4">{art.title}</h4>
-                      </div>
-                      <div className="text-[10px] font-bold text-black flex items-center gap-1 group-hover:underline">Читать на {art.site} <ExternalLink className="w-3 h-3"/></div>
                     </a>
                   ))}
                 </div>
@@ -734,7 +621,6 @@ export default function App() {
             {renderContent()}
           </div>
           
-          {/* Consistent Global Footer */}
           <footer className="mt-16 pt-10 pb-10 border-t border-gray-100 text-center">
             <p className="text-sm text-gray-400 font-mono mb-4 italic">
               Этот гайд — ваша шпаргалка на весь AI-кэмп
