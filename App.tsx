@@ -7,7 +7,6 @@ import {
   BookOpen, 
   Calendar, 
   Lightbulb, 
-  Cpu, 
   Check, 
   Menu, 
   X,
@@ -46,8 +45,8 @@ import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUT
 const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => (
   <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center lg:hidden">
     <div className="flex items-center gap-2">
-      <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
-        <Cpu className="text-white w-5 h-5" />
+      <div className="w-8 h-8 rounded-full flex items-center justify-center">
+        <img src="/logo.svg" alt="AI Camp Logo" className="w-8 h-8" />
       </div>
       <span className="font-bold tracking-tight">AI CAMP</span>
     </div>
