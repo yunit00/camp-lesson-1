@@ -41,13 +41,20 @@ import {
 } from 'lucide-react';
 import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES } from './constants';
 
+// Logo Component - inline SVG for production compatibility
+const Logo = ({ className }: { className?: string }) => (
+  <svg className={className} width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="16" cy="16" r="16" fill="#000000"/>
+    <circle cx="16" cy="11" r="2.5" fill="#FFFFFF"/>
+    <circle cx="16" cy="21" r="2.5" fill="#FFFFFF"/>
+  </svg>
+);
+
 // Components
 const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => (
   <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center lg:hidden">
     <div className="flex items-center gap-2">
-      <div className="w-8 h-8 rounded-full flex items-center justify-center">
-        <img src="/logo.svg" alt="AI Camp Logo" className="w-8 h-8" />
-      </div>
+      <Logo className="w-8 h-8" />
       <span className="font-bold tracking-tight">AI CAMP</span>
     </div>
     <button onClick={onOpenSidebar} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
