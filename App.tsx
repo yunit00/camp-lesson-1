@@ -33,7 +33,12 @@ import {
   Mic,
   MousePointer2,
   BrainCircuit,
-  Fingerprint
+  Fingerprint,
+  Bot,
+  Layout,
+  Layers,
+  Palette,
+  Volume2
 } from 'lucide-react';
 import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES } from './constants';
 
@@ -147,6 +152,17 @@ export default function App() {
       case 'Результаты и проекты': return <Award className="w-4 h-4" />;
       case 'Дополнительные вопросы': return <MessageSquare className="w-4 h-4" />;
       default: return <HelpCircle className="w-4 h-4" />;
+    }
+  };
+
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'Telegram-боты': return <Bot className="w-6 h-6" />;
+      case 'Сайты и лендинги': return <Layout className="w-6 h-6" />;
+      case 'Системы и инструменты': return <Layers className="w-6 h-6" />;
+      case 'Визуальный контент': return <Palette className="w-6 h-6" />;
+      case 'Аудио и транскрипция': return <Volume2 className="w-6 h-6" />;
+      default: return <Sparkles className="w-6 h-6" />;
     }
   };
 
@@ -338,28 +354,59 @@ export default function App() {
         const categories = Array.from(new Set(PROJECTS.map(p => p.category)));
         return (
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
-            <div className="flex items-center gap-4 mb-12">
-              <Lightbulb className="w-8 h-8 text-black" />
-              <h2 className="text-4xl font-bold tracking-tight">Вдохновение</h2>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+                    <Lightbulb className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-gray-400">Project Lab</span>
+                </div>
+                <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Вдохновение</h2>
+              </div>
             </div>
-            <div className="space-y-16">
+
+            <div className="space-y-24">
               {categories.map(category => (
-                <div key={category} className="space-y-8">
-                  <h3 className="text-2xl font-black border-l-4 border-black pl-4">{category}</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div key={category} className="space-y-10">
+                  <div className="flex items-center gap-6">
+                    <div className="w-14 h-14 bg-black rounded-[1.25rem] flex items-center justify-center text-white shadow-xl shadow-black/10">
+                      {getCategoryIcon(category)}
+                    </div>
+                    <div>
+                      <h3 className="text-3xl font-black tracking-tighter uppercase">{category}</h3>
+                      <div className="h-1 w-12 bg-black mt-1" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {PROJECTS.filter(p => p.category === category).map((proj, i) => (
-                      <div key={i} className="bg-white border border-gray-100 p-8 rounded-3xl group hover:shadow-2xl hover:shadow-black/5 transition-all flex flex-col">
-                        <h4 className="text-lg font-bold mb-3">{proj.title}</h4>
-                        <p className="text-xs text-gray-600 mb-6 flex-grow">{proj.why}</p>
-                        <div className="pt-4 border-t border-gray-50">
-                          <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mb-3">Функционал:</p>
-                          <ul className="space-y-2">
+                      <div key={i} className="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] flex flex-col hover:border-black hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 ease-out">
+                        <div className="flex-grow">
+                          <h4 className="text-xl font-black mb-4 leading-tight group-hover:translate-x-1 transition-transform">{proj.title}</h4>
+                          <p className="text-sm text-gray-500 leading-relaxed mb-8 italic">
+                            "{proj.why}"
+                          </p>
+                        </div>
+                        
+                        <div className="pt-8 border-t border-gray-50">
+                          <div className="flex items-center gap-2 mb-4">
+                            <Zap className="w-3 h-3 text-black" />
+                            <p className="text-[10px] font-mono font-black text-gray-400 uppercase tracking-widest">Core Features</p>
+                          </div>
+                          <ul className="grid grid-cols-1 gap-3">
                             {proj.features.map((f, j) => (
-                              <li key={j} className="flex items-center gap-2 text-[11px] text-gray-500">
-                                <Check className="w-3 h-3 text-black" /> {f}
+                              <li key={j} className="flex items-start gap-3 text-[11px] font-bold text-gray-600 group-hover:text-black transition-colors">
+                                <span className="mt-1 w-1.5 h-1.5 bg-black/10 rounded-full group-hover:bg-black transition-colors shrink-0" />
+                                {f}
                               </li>
                             ))}
                           </ul>
+                        </div>
+                        
+                        {/* Decorative corner element */}
+                        <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-10 transition-opacity">
+                          <ArrowRight className="w-12 h-12 -rotate-45" />
                         </div>
                       </div>
                     ))}
