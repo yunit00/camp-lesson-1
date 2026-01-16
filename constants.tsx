@@ -3,7 +3,7 @@ import { Section, CourseDay, ProjectExample, FAQItem, OutcomeCategory } from './
 
 export const SECTIONS: Section[] = [
   { id: 'intro', title: '00 // ВВЕДЕНИЕ' },
-  { id: 'tracker', title: '01 // ТРЕКЕР КУРСА' },
+  { id: 'tracker', title: '01 // ТРЕКЕР КЭМПА' },
   { id: 'glossary', title: '02 // ГЛОССАРИЙ' },
   { id: 'inspiration', title: '03 // ВДОХНОВЕНИЕ' },
   { id: 'outcomes', title: '04 // РЕЗУЛЬТАТЫ' },
@@ -24,15 +24,14 @@ export const DAILY_TRACKER: TrackerDay[] = [
   { 
     day: '2', 
     topic: 'Вводная лекция + AI-браузеры', 
-    format: 'Эфир 19:00',
+    format: 'Эфир 19:00 (MSK)',
     details: 'Обзор AI-трендов 2026, программа кэмпа',
     week: 1,
     services: [
       { id: 'chatgpt', name: 'ChatGPT' },
       { id: 'claude', name: 'Claude' },
       { id: 'gemini', name: 'Gemini' },
-      { id: 'openai', name: 'OpenAI (API)' },
-      { id: 'anthropic', name: 'Anthropic (API)' },
+      { id: 'dia', name: 'Dia' },
       { id: 'comet', name: 'Comet' },
       { id: 'arc', name: 'Arc' }
     ]
@@ -49,8 +48,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'cursor_tr', name: 'Cursor (обработка)' },
       { id: 'claude_tr', name: 'Claude (обработка)' },
       { id: 'youtube_tr', name: 'YouTube (транскрибация)' },
-      { id: 'tg_tr', name: 'Telegram (голосовые)' },
-      { id: 'wa_tr', name: 'WhatsApp (голосовые)' }
+      { id: 'tg_wa_merged', name: 'Telegram / WhatsApp' }
     ]
   },
   { 
@@ -61,7 +59,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
     week: 1,
     services: [
       { id: 'chatgpt_dr', name: 'ChatGPT (Deep Research)' },
-      { id: 'claude_proj', name: 'Claude (Projects)' },
+      { id: 'claude_standalone', name: 'Claude' },
+      { id: 'gemini_day4', name: 'Gemini' },
       { id: 'deep_research', name: 'Deep Research Tool' },
       { id: 'spiral', name: 'Spiral' }
     ]
@@ -71,9 +70,12 @@ export const DAILY_TRACKER: TrackerDay[] = [
     topic: 'NotebookLM + Личный преподаватель', 
     format: 'Запись',
     details: 'Работа с документами и обучение',
-    week: 1,
+    week: 2,
     services: [
       { id: 'notebooklm', name: 'Google NotebookLM' },
+      { id: 'chatgpt_projects', name: 'ChatGPT Projects' },
+      { id: 'ai_studio_day5', name: 'Google AI Studio' },
+      { id: 'google_labs', name: 'Google Labs' },
       { id: 'gemini_doc', name: 'Gemini' },
       { id: 'gdrive', name: 'Google Drive (импорт)' },
       { id: 'yt_import', name: 'YouTube (импорт)' }
@@ -82,16 +84,18 @@ export const DAILY_TRACKER: TrackerDay[] = [
   { 
     day: '6', 
     topic: 'Вайбкодинг', 
-    format: 'Эфир 19:00',
+    format: 'Эфир 19:00 (MSK)',
     details: 'Базовый Vibe Coding',
     week: 2,
     services: [
       { id: 'cursor_base', name: 'Cursor' },
       { id: 'claude_code', name: 'Claude Code' },
-      { id: 'gemini_vibe', name: 'Gemini' },
+      { id: 'antigravity', name: 'Antigravity' },
+      { id: 'conductor', name: 'Conductor' },
+      { id: 'terminal', name: 'Terminal' },
       { id: 'ai_studio', name: 'Google AI Studio' },
       { id: 'v0', name: 'v0 (by Vercel)' },
-      { id: 'nanobanano', name: 'NanoBanano Pro' }
+      { id: 'nanobanano_pro', name: 'Nano Banana Pro' }
     ]
   },
   { 
@@ -111,15 +115,16 @@ export const DAILY_TRACKER: TrackerDay[] = [
   { 
     day: '8', 
     topic: 'Создание лендингов и сайтов', 
-    format: 'Запись/Эфир',
+    format: 'Эфир 19:00 (MSK)',
     details: 'Создание сайтов с AI',
     week: 2,
     services: [
       { id: 'v0_site', name: 'v0 (генерация UI)' },
       { id: 'cursor_code', name: 'Cursor (доработка)' },
-      { id: 'github_storage', name: 'GitHub (хранение)' },
+      { id: 'github_pages', name: 'GitHub Pages' },
+      { id: 'gemini_canvas_day8', name: 'Gemini Canvas' },
+      { id: 'ai_studio_build_day8', name: 'Google AI Studio Build' },
       { id: 'vercel', name: 'Vercel (хостинг)' },
-      { id: 'netlify_host', name: 'Netlify (хостинг)' },
       { id: 'browser_agents', name: 'Браузерные агенты (DNS)' }
     ]
   },
@@ -128,10 +133,10 @@ export const DAILY_TRACKER: TrackerDay[] = [
     topic: 'Создание Telegram-бота', 
     format: 'Документ',
     details: 'Создание ботов',
-    week: 2,
+    week: 3,
     services: [
       { id: 'botfather', name: 'BotFather' },
-      { id: 'telegram_main', name: 'Telegram' },
+      { id: 'postgresql', name: 'PostgreSQL' },
       { id: 'tg_api', name: 'Telegram Bot API' },
       { id: 'cursor_bot', name: 'Cursor (разработка)' },
       { id: 'openrouter_bot', name: 'OpenRouter (AI)' },
@@ -147,9 +152,11 @@ export const DAILY_TRACKER: TrackerDay[] = [
     week: 3,
     services: [
       { id: 'notion', name: 'Notion' },
-      { id: 'gdrive_sb', name: 'Google Drive' },
+      { id: 'github_sb', name: 'GitHub' },
+      { id: 'local_storage', name: 'Local Storage' },
+      { id: 'notes_sb', name: 'Notes' },
+      { id: 'gemini_sb_day10', name: 'Gemini' },
       { id: 'cursor_sb', name: 'Cursor' },
-      { id: 'claude_sb', name: 'Claude Code' },
       { id: 'notebooklm_sb', name: 'NotebookLM' }
     ]
   },
@@ -160,10 +167,10 @@ export const DAILY_TRACKER: TrackerDay[] = [
     details: 'Создание презентаций с AI',
     week: 3,
     services: [
-      { id: 'nanobanano_pres', name: 'NanoBanano Pro' },
+      { id: 'nanobanano_pres', name: 'Nano Banana Pro' },
       { id: 'genspark', name: 'Genspark' },
       { id: 'ai_studio_build', name: 'Google AI Studio (Build)' },
-      { id: 'gemini_3', name: 'Gemini 3' },
+      { id: 'gemini_canvas_day11', name: 'Gemini Canvas' },
       { id: 'gamma', name: 'Gamma' },
       { id: 'kimi', name: 'Kimi' }
     ]
@@ -175,7 +182,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
     details: 'AI-ассистенты по работе с таблицами',
     week: 3,
     services: [
-      { id: 'gemini_table', name: 'Gemini' },
+      { id: 'gemini_agent_day12', name: 'Gemini Agent' },
       { id: 'browser_agents_table', name: 'Браузерные агенты' },
       { id: 'rows', name: 'Rows' }
     ]
@@ -183,11 +190,11 @@ export const DAILY_TRACKER: TrackerDay[] = [
   { 
     day: '13', 
     topic: 'Демо-день', 
-    format: 'Эфир',
+    format: 'Эфир 19:00 (MSK)',
     details: 'Презентация проектов',
     week: 3,
     services: [
-      { id: 'final_demo', name: 'Демонстрация проекта' }
+      { id: 'final_demo_updated', name: 'Демонстрация и доработка проектов Кэмпа' }
     ]
   }
 ];
@@ -378,7 +385,7 @@ export const COURSE_OUTCOMES: OutcomeCategory[] = [
   {
     title: 'Технические навыки и инфраструктура',
     items: [
-      { title: 'Настройка инфраструктуры', description: 'Работа с GitHub, Railway, Netlify, OpenRouter (API шлюзы).' },
+      { title: 'Настройка инфраструктуры', description: 'Работа with GitHub, Railway, Netlify, OpenRouter (API шлюзы).' },
       { title: 'Деплой проектов', description: 'Публикация в интернет, настройка доменов и автоматическое обновление.' },
       { title: 'Работа с API и интеграциями', description: 'Подключение моделей через OpenRouter, работа с переменными окружения.' },
       { title: 'Система контроля версий (Git)', description: 'Создание точек сохранения, откат версий, безопасность прогресса разработки.' },

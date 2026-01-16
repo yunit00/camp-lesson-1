@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ChevronRight, 
   CheckCircle2, 
@@ -109,16 +109,28 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
 };
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('intro');
+  const [activeSection, setActiveSection] = useState(() => {
+    return localStorage.getItem('ai_camp_active_section') || 'intro';
+  });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [checkedServices, setCheckedServices] = useState<Record<string, boolean>>({});
   const [faqCategory, setFaqCategory] = useState('Общие вопросы');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const mainContentRef = useRef<HTMLElement>(null);
   
+  // Persist checked services
   useEffect(() => {
     const saved = localStorage.getItem('ai_camp_services_tracker');
     if (saved) setCheckedServices(JSON.parse(saved));
   }, []);
+
+  // Handle section changes: persist and scroll to top
+  useEffect(() => {
+    localStorage.setItem('ai_camp_active_section', activeSection);
+    if (mainContentRef.current) {
+      mainContentRef.current.scrollTop = 0;
+    }
+  }, [activeSection]);
 
   const toggleService = (id: string) => {
     const next = { ...checkedServices, [id]: !checkedServices[id] };
@@ -219,26 +231,6 @@ export default function App() {
                 </div>
               </section>
             </div>
-
-            {/* Guide Info Panel */}
-            <div className="mt-16 pt-8 border-t border-gray-100 grid grid-cols-2 sm:grid-cols-4 gap-6">
-               <div>
-                 <p className="text-[9px] font-mono text-gray-400 uppercase mb-1">Location</p>
-                 <p className="text-[11px] font-bold">AI_CAMP_2026</p>
-               </div>
-               <div>
-                 <p className="text-[9px] font-mono text-gray-400 uppercase mb-1">Focus</p>
-                 <p className="text-[11px] font-bold">AI_CRAFT</p>
-               </div>
-               <div>
-                 <p className="text-[9px] font-mono text-gray-400 uppercase mb-1">Duration</p>
-                 <p className="text-[11px] font-bold">21_DAYS</p>
-               </div>
-               <div>
-                 <p className="text-[9px] font-mono text-gray-400 uppercase mb-1">Community</p>
-                 <p className="text-[11px] font-bold">TOCHKI_AI</p>
-               </div>
-            </div>
           </div>
         );
 
@@ -247,9 +239,9 @@ export default function App() {
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
             <div className="flex items-center gap-4 mb-4">
               <CheckCircle2 className="w-8 h-8 text-black" />
-              <h2 className="text-4xl font-bold tracking-tight">Интерактивный трекер</h2>
+              <h2 className="text-4xl font-bold tracking-tight">Трекер кэмпа</h2>
             </div>
-            <p className="text-gray-500 mb-12 text-sm">Отмечайте сервисы и темы по мере прохождения курса.</p>
+            <p className="text-gray-500 mb-12 text-sm">Отмечайте сервисы и темы по мере прохождения модуля.</p>
             
             <div className="space-y-16">
               {[1, 2, 3].map(week => (
@@ -279,19 +271,19 @@ export default function App() {
                               key={service.id}
                               onClick={() => toggleService(service.id)}
                               className={`
-                                cursor-pointer px-4 py-3 rounded-xl border transition-all flex items-center gap-3
+                                cursor-pointer px-4 py-3 rounded-xl border transition-all flex items-center gap-3 active:scale-[0.98]
                                 ${checkedServices[service.id] 
-                                  ? 'bg-green-50 border-green-200 text-green-700' 
-                                  : 'bg-white border-gray-100 hover:border-black'}
+                                  ? 'bg-black border-black text-white shadow-lg shadow-black/20 scale-[1.02]' 
+                                  : 'bg-white border-gray-100 hover:border-black hover:shadow-md'}
                               `}
                             >
                               <div className={`
-                                w-5 h-5 rounded-md border flex items-center justify-center
-                                ${checkedServices[service.id] ? 'bg-green-600 border-green-600' : 'border-gray-200'}
+                                w-5 h-5 rounded-md border flex items-center justify-center transition-colors
+                                ${checkedServices[service.id] ? 'bg-white border-white' : 'border-gray-200'}
                               `}>
-                                {checkedServices[service.id] && <Check className="w-3 h-3 text-white" />}
+                                {checkedServices[service.id] && <Check className="w-3 h-3 text-black" />}
                               </div>
-                              <span className="text-xs font-medium truncate">{service.name}</span>
+                              <span className="text-xs font-bold truncate">{service.name}</span>
                             </div>
                           ))}
                         </div>
@@ -733,7 +725,10 @@ export default function App() {
         onClose={() => setIsSidebarOpen(false)}
       />
 
-      <main className="flex-1 overflow-y-auto custom-scrollbar">
+      <main 
+        ref={mainContentRef}
+        className="flex-1 overflow-y-auto custom-scrollbar"
+      >
         <div className="max-w-6xl mx-auto px-6 py-12 lg:py-16 lg:px-12 min-h-full flex flex-col">
           <div className="flex-1">
             {renderContent()}
