@@ -584,6 +584,7 @@ export default function App() {
       case 'essentials':
         return (
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
+            {/* Header Section */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -594,7 +595,7 @@ export default function App() {
                 </div>
                 <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Оплата <br/>сервисов</h2>
               </div>
-              
+
               <div className="bg-white border-2 border-gray-100 p-8 rounded-[2.5rem] max-w-xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
                    <Users className="w-24 h-24 text-black" />
@@ -608,28 +609,34 @@ export default function App() {
                     "Если у вас нет иностранной карты или друзей за границей, готовых помочь с оплатой, мы собрали для вас этот список решений."
                   </p>
                   <p className="text-[11px] text-gray-500 leading-relaxed">
-                    Эта база знаний сформирована силами нашего комьюнити. Пользуйтесь, но помните: все действия вы совершаете на свой страх и риск. Ни посредники, ни сами сервисы не дают 100% гарантий.
+                    Эта база знаний сформирована силами нашего комьюнити. Пользуйтесь, но помните: все действия вы совершаете на свой страх и риск. Ни посредники, ни сами сервисы не дают 100% гарантий. Бывали случаи, когда аккаунты блокировали или способы оплаты переставали работать.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all">
+            {/* Main Grid - 4 Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {/* Card 1: Готовые аккаунты */}
+              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center">
-                    <ShoppingBag className="w-6 h-6 text-black" />
+                  <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                    <ShoppingBag className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-xl font-black">1. Готовые аккаунты</h3>
                     <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Самый простой путь</p>
                   </div>
                 </div>
+                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+                  Вы не мучаетесь с картами, а платите рубли посреднику, который либо выдает готовый логин/пароль, либо оплачивает подписку на ваш аккаунт.
+                </p>
                 <div className="space-y-3">
                   {[
-                    { name: 'Plati.market', desc: 'Маркетплейс цифровых товаров', url: 'https://plati.market' },
-                    { name: 'GGSel', desc: 'Каталог продавцов и активаций', url: 'https://ggsel.net' },
-                    { name: 'FunPay', desc: 'Биржа аккаунтов', url: 'https://funpay.com' },
+                    { name: 'Plati.market', desc: 'Огромный маркетплейс цифровых товаров', url: 'https://plati.market' },
+                    { name: 'GGSel', desc: 'Каталог продавцов с услугами активации', url: 'https://ggsel.net' },
+                    { name: 'FunPay', desc: 'Биржа аккаунтов (проверенный: id 16249031)', url: 'https://funpay.com' },
+                    { name: 'Oplatym', desc: 'Специализируется на оплате подписок', url: 'https://oplatym.ru' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div>
@@ -642,20 +649,25 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all">
+              {/* Card 2: Виртуальные карты */}
+              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center">
-                    <Settings className="w-6 h-6 text-black" />
+                  <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                    <CreditCard className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-xl font-black">2. Виртуальные карты</h3>
-                    <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Для контроля баланса</p>
+                    <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Для самостоятельной оплаты</p>
                   </div>
                 </div>
+                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+                  Вариант для тех, кто хочет иметь свою карту, привязывать ее к сервисам и контролировать баланс.
+                </p>
                 <div className="space-y-3">
                   {[
-                    { name: 'Zarub.io', desc: 'Карты для арбитража и сервисов', url: 'https://zarub.io' },
-                    { name: 'Zambulay', desc: 'Предоплаченные карты Visa/Mastercard', url: 'https://zambulay.com' },
+                    { name: 'Zarub.io', desc: 'Виртуальные карты для арбитража и сервисов', url: 'https://zarub.io' },
+                    { name: 'Zambulay', desc: 'Предоплаченные Visa/Mastercard', url: 'https://zambulay.com' },
+                    { name: 'ZeePay', desc: 'Турецкий финтех-кошелек', url: 'https://zeepay.com.tr/en' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div>
@@ -665,6 +677,139 @@ export default function App() {
                       <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
                     </a>
                   ))}
+                </div>
+                <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-2xl">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-[11px] text-amber-800 font-medium">Это сложный метод. Требует верификации и понимания нюансов пополнения.</p>
+                      <a href="https://4pda.to/forum/index.php?showtopic=1103981" target="_blank" rel="noreferrer" className="text-[10px] text-amber-600 hover:text-amber-800 underline mt-1 inline-block">
+                        Обсуждение ZeePay на 4PDA →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: AI без VPN */}
+              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black">3. AI без VPN</h3>
+                    <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Без зарубежных аккаунтов</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+                  Если вам не принципиально иметь аккаунт именно на сайте OpenAI или Anthropic, а нужен просто доступ к моделям.
+                </p>
+                <div className="space-y-3">
+                  <a href="https://gptunnel.ru" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all border border-gray-200">
+                    <div>
+                      <p className="font-bold text-sm">GPTunnel</p>
+                      <p className="text-[10px] text-gray-500 group-hover:text-gray-300">Российский сервис-прокладка</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                  </a>
+                </div>
+                <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl">
+                  <p className="text-[11px] text-gray-700 leading-relaxed">
+                    <span className="font-bold">Возможности:</span> Доступ к ChatGPT, Claude и Midjourney через их интерфейс. Оплата российскими картами, VPN не нужен.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 4: Инструкции и лайфхаки */}
+              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                    <Gift className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black">4. Инструкции и промо</h3>
+                    <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Гайды и лайфхаки</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+                  Гайды, как обойти блокировки, получить бесплатный доступ и сэкономить.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { name: 'ChatGPT Go (1 год бесплатно)', desc: 'Промо OpenAI для Индии через VPN', url: 'https://chatgpt.com', tag: 'FREE' },
+                    { name: 'Perplexity Pro дешево', desc: 'Промо-тариф ~$35/год на Plati.market', url: 'https://plati.market/search/perplexity', tag: 'DEAL' },
+                    { name: 'Google AI Studio $300', desc: 'Бесплатный баланс для разработчиков', url: 'https://docs.google.com/document/d/1CgW_JaFEy7ynJPANLoxQJxk0-L2D_OQo3GYsGy1_l5s/edit', tag: 'FREE' },
+                  ].map((item, i) => (
+                    <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <p className="font-bold text-sm">{item.name}</p>
+                          <span className={`text-[8px] font-black px-1.5 py-0.5 rounded ${item.tag === 'FREE' ? 'bg-green-100 text-green-700 group-hover:bg-green-500 group-hover:text-white' : 'bg-orange-100 text-orange-700 group-hover:bg-orange-500 group-hover:text-white'}`}>{item.tag}</span>
+                        </div>
+                        <p className="text-[10px] text-gray-400 group-hover:text-gray-300">{item.desc}</p>
+                      </div>
+                      <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 flex-shrink-0 ml-2" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Resources Section */}
+            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-[2.5rem] p-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black">Полезные статьи</h3>
+                  <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Подробные инструкции от комьюнити</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="https://vc.ru/chatgpt" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p className="font-bold text-sm mb-1 group-hover:underline">Настройка ChatGPT в РФ</p>
+                      <p className="text-[10px] text-gray-400">Базовый гайд по VPN и регистрации</p>
+                      <p className="text-[9px] text-gray-300 mt-2 font-mono">VC.RU</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-black" />
+                  </div>
+                </a>
+
+                <a href="https://habr.com/ru/articles/832854/" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p className="font-bold text-sm mb-1 group-hover:underline">Claude Code без рисков</p>
+                      <p className="text-[10px] text-gray-400">Как избегать банов за "подозрительную активность"</p>
+                      <p className="text-[9px] text-gray-300 mt-2 font-mono">HABR</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-black" />
+                  </div>
+                </a>
+              </div>
+
+              {/* ChatGPT Go Instructions */}
+              <div className="mt-8 p-6 bg-gray-50 rounded-2xl border border-gray-200">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm mb-2">Как получить ChatGPT Go бесплатно на год</h4>
+                    <ol className="text-[11px] text-gray-600 space-y-1.5 list-decimal list-inside">
+                      <li>Включить VPN с локацией Индия</li>
+                      <li>Зарегистрировать новый аккаунт в ChatGPT</li>
+                      <li>Увидеть баннер "Upgrade to ChatGPT Go for free"</li>
+                    </ol>
+                    <p className="text-[10px] text-amber-700 mt-3 flex items-center gap-1.5">
+                      <AlertTriangle className="w-3 h-3" />
+                      Иногда просит карту для верификации (списание 0 рупий)
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
