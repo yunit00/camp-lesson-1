@@ -32,10 +32,21 @@ export interface ProjectExample {
 export interface FAQItem {
   question: string;
   answer: string;
+  category: string;
 }
 
 export interface Section {
   id: string;
   title: string;
   icon?: string;
+}
+
+export interface OutcomeSubItem {
+  title: string;
+  description: string;
+}
+
+export interface OutcomeCategory {
+  title: string;
+  items: OutcomeSubItem[];
 }
