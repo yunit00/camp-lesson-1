@@ -838,9 +838,9 @@ export default function App() {
         onClose={() => setIsSidebarOpen(false)}
       />
 
-      <main 
+      <main
         ref={mainContentRef}
-        className="flex-1 overflow-y-auto custom-scrollbar"
+        className="flex-1 overflow-y-auto custom-scrollbar lg:ml-72"
       >
         <div className="max-w-6xl mx-auto px-6 py-12 lg:py-16 lg:px-12 min-h-full flex flex-col">
           <div className="flex-1">
