@@ -775,7 +775,7 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a href="https://vc.ru/chatgpt" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
+                <a href="https://vc.ru/services/2294983-kak-nastroit-chatgpt-i-podpisku-v-rossii" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
                   <div className="flex items-start justify-between">
                     <div>
                       <p className="font-bold text-sm mb-1 group-hover:underline">Настройка ChatGPT в РФ</p>
@@ -786,7 +786,7 @@ export default function App() {
                   </div>
                 </a>
 
-                <a href="https://habr.com/ru/articles/832854/" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
+                <a href="https://habr.com/ru/articles/976072/" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
                   <div className="flex items-start justify-between">
                     <div>
                       <p className="font-bold text-sm mb-1 group-hover:underline">Claude Code без рисков</p>
