@@ -745,7 +745,7 @@ export default function App() {
                   {[
                     { name: 'ChatGPT Go (1 год бесплатно)', desc: 'Промо OpenAI для Индии через VPN', url: 'https://chatgpt.com', tag: 'FREE' },
                     { name: 'Perplexity Pro дешево', desc: 'Промо-тариф ~$35/год на Plati.market', url: 'https://plati.market/search/perplexity', tag: 'DEAL' },
-                    { name: 'Google AI Studio $300', desc: 'Бесплатный баланс для разработчиков', url: 'https://docs.google.com/document/d/1CgW_JaFEy7ynJPANLoxQJxk0-L2D_OQo3GYsGy1_l5s/edit', tag: 'FREE' },
+                    { name: 'Google AI Studio $300', desc: 'Бесплатный баланс для разработчиков', url: 'https://docs.google.com/document/d/1PzJo-Yy-22UXzC87d6pYyegOaMTPOJsUdWRHKs27SBE/edit?usp=sharing', tag: 'FREE' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div className="flex-1">
