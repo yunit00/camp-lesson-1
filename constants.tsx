@@ -8,7 +8,8 @@ export const SECTIONS: Section[] = [
   { id: 'inspiration', title: '03 // ВДОХНОВЕНИЕ' },
   { id: 'outcomes', title: '04 // РЕЗУЛЬТАТЫ' },
   { id: 'faq', title: '05 // FAQ' },
-  { id: 'essentials', title: '06 // ОПЛАТА СЕРВИСОВ' }
+  { id: 'essentials', title: '06 // ОПЛАТА СЕРВИСОВ' },
+  { id: 'services', title: '07 // ССЫЛКИ НА СЕРВИСЫ' }
 ];
 
 export interface TrackerService {
@@ -436,4 +437,116 @@ export const FAQ: FAQItem[] = [
   { category: 'Дополнительные вопросы', question: 'Можно ли проходить кэмп с телефона?', answer: 'Нет, нужен компьютер. Многие инструменты требуют установки программ и работы в редакторе кода.' },
   { category: 'Дополнительные вопросы', question: 'Есть ли корпоративный формат?', answer: 'Да, есть корпоративное обучение. Напишите в поддержку для обсуждения условий.' },
   { category: 'Дополнительные вопросы', question: 'Когда следующий поток?', answer: 'Следите за обновлениями в Telegram-канале "Точки над ИИ" или на сайте кэмпа.' }
+];
+
+export interface ServiceLink {
+  name: string;
+  url: string;
+}
+
+export interface ServiceCategory {
+  category: string;
+  items: ServiceLink[];
+}
+
+export const SERVICES_LINKS: ServiceCategory[] = [
+  {
+    category: 'AI-ассистенты и чат-боты',
+    items: [
+      { name: 'Claude', url: 'https://claude.ai' },
+      { name: 'ChatGPT', url: 'https://chatgpt.com' },
+      { name: 'Gemini', url: 'https://gemini.google.com' },
+      { name: 'Perplexity', url: 'https://perplexity.ai' },
+      { name: 'Kimi', url: 'https://kimi.moonshot.cn' }
+    ]
+  },
+  {
+    category: 'IDE и Vibe Coding',
+    items: [
+      { name: 'Cursor', url: 'https://cursor.com' },
+      { name: 'Claude Code', url: 'https://claude.ai/code' },
+      { name: 'Antigravity', url: 'https://antigravity.google/' },
+      { name: 'Conductor', url: 'https://www.conductor.build/' },
+      { name: 'v0', url: 'https://v0.dev' },
+      { name: 'Google AI Studio', url: 'https://aistudio.google.com' },
+      { name: 'Kimi K2', url: 'https://kimi.moonshot.cn' },
+      { name: 'ChatGPT Canvas', url: 'https://chatgpt.com' },
+      { name: 'Gemini Canvas', url: 'https://gemini.google.com' }
+    ]
+  },
+  {
+    category: 'Браузеры с AI',
+    items: [
+      { name: 'Dia', url: 'https://diabrowser.com' },
+      { name: 'Comet', url: 'https://www.perplexity.ai/comet' },
+      { name: 'Microsoft Edge', url: 'https://microsoft.com/edge' },
+      { name: 'Atlas', url: 'https://chatgpt.com/es-419/atlas/' },
+      { name: 'Claude для Chrome', url: 'https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn' },
+      { name: 'Sider', url: 'https://chromewebstore.google.com/detail/sider-%D0%BE%D0%B1%D1%89%D0%B0%D0%B9%D1%82%D0%B5%D1%81%D1%8C-%D1%81%D0%BE-%D0%B2%D1%81%D0%B5%D0%BC%D0%B8/difoiogjjojoaoomphldepapgpbgkhkb' }
+    ]
+  },
+  {
+    category: 'Голосовой ввод и транскрибация',
+    items: [
+      { name: 'MacWhisper', url: 'https://goodsnooze.gumroad.com/l/macwhisper' },
+      { name: 'WhisperFlow', url: 'https://wisprflow.ai/' }
+    ]
+  },
+  {
+    category: 'Работа с документами и знаниями',
+    items: [
+      { name: 'Google NotebookLM', url: 'https://notebooklm.google.com' },
+      { name: 'Google AI Studio', url: 'https://aistudio.google.com' },
+      { name: 'Notion', url: 'https://notion.so' }
+    ]
+  },
+  {
+    category: 'Хостинг и деплой',
+    items: [
+      { name: 'Vercel', url: 'https://vercel.com' },
+      { name: 'Netlify', url: 'https://netlify.com' },
+      { name: 'GitHub Pages', url: 'https://pages.github.com' },
+      { name: 'Railway', url: 'https://railway.app' }
+    ]
+  },
+  {
+    category: 'Версионирование кода',
+    items: [
+      { name: 'GitHub', url: 'https://github.com' }
+    ]
+  },
+  {
+    category: 'API и интеграции',
+    items: [
+      { name: 'OpenRouter', url: 'https://openrouter.ai' },
+      { name: 'OpenAI API', url: 'https://platform.openai.com' },
+      { name: 'BotFather (Telegram)', url: 'https://t.me/BotFather' }
+    ]
+  },
+  {
+    category: 'Базы данных',
+    items: [
+      { name: 'Railway (PostgreSQL)', url: 'https://railway.app' },
+      { name: 'Supabase', url: 'https://supabase.com' },
+      { name: 'Neon', url: 'https://neon.tech' }
+    ]
+  },
+  {
+    category: 'Презентации',
+    items: [
+      { name: 'Gamma', url: 'https://gamma.app' },
+      { name: 'Genspark', url: 'https://genspark.ai' },
+      { name: 'Google AI Studio', url: 'https://aistudio.google.com' },
+      { name: 'Gemini', url: 'https://gemini.google.com' },
+      { name: 'Kimi Slides', url: 'https://www.kimi.com/slides' },
+      { name: 'Figma Slides', url: 'https://figma.com/slides' }
+    ]
+  },
+  {
+    category: 'Работа с таблицами',
+    items: [
+      { name: 'Rows', url: 'https://rows.com' },
+      { name: 'Gemini в Google Sheets', url: 'https://workspace.google.com/products/sheets' }
+    ]
+  }
 ];
