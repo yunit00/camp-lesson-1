@@ -467,7 +467,7 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Claude Code', url: 'https://claude.ai/code' },
       { name: 'Antigravity', url: 'https://antigravity.google/' },
       { name: 'Conductor', url: 'https://www.conductor.build/' },
-      { name: 'v0', url: 'https://v0.dev' },
+      { name: 'v0 (реф.)', url: 'https://v0.app/ref/4AZTJ9' }, // реферальная ссылка
       { name: 'Google AI Studio', url: 'https://aistudio.google.com' },
       { name: 'Kimi K2', url: 'https://kimi.moonshot.cn' },
       { name: 'ChatGPT Canvas', url: 'https://chatgpt.com' },
@@ -506,7 +506,7 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Vercel', url: 'https://vercel.com' },
       { name: 'Netlify', url: 'https://netlify.com' },
       { name: 'GitHub Pages', url: 'https://pages.github.com' },
-      { name: 'Railway', url: 'https://railway.app' }
+      { name: 'Railway (реф.)', url: 'https://railway.com?referralCode=SKavd1' } // реферальная ссылка
     ]
   },
   {
@@ -526,7 +526,7 @@ export const SERVICES_LINKS: ServiceCategory[] = [
   {
     category: 'Базы данных',
     items: [
-      { name: 'Railway (PostgreSQL)', url: 'https://railway.app' },
+      { name: 'Railway (PostgreSQL, реф.)', url: 'https://railway.com?referralCode=SKavd1' }, // реферальная ссылка
       { name: 'Supabase', url: 'https://supabase.com' },
       { name: 'Neon', url: 'https://neon.tech' }
     ]
