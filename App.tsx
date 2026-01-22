@@ -40,7 +40,7 @@ import {
   Volume2,
   Link2
 } from 'lucide-react';
-import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS } from './constants';
+import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES } from './constants';
 
 // Logo Component - inline SVG for production compatibility
 const Logo = ({ className }: { className?: string }) => (
@@ -878,6 +878,81 @@ export default function App() {
                       >
                         <p className="font-medium text-sm">{item.name}</p>
                         <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'bookshelf':
+        return (
+          <div className="animate-in slide-in-from-right-4 fade-in duration-500">
+            {/* Header Section */}
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+                    <BookOpen className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-gray-400">Reading List</span>
+                </div>
+                <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Книжная<br/>полка</h2>
+              </div>
+
+              <div className="bg-white border-2 border-gray-100 p-8 rounded-[2.5rem] max-w-xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
+                  <BookOpen className="w-24 h-24 text-black" />
+                </div>
+                <div className="flex items-center gap-2 text-black mb-4">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest">Дополнительные материалы</span>
+                </div>
+                <div className="space-y-4 relative z-10">
+                  <p className="text-xs text-gray-700 leading-relaxed font-medium italic">
+                    "Блоги, рассылки и каналы для тех, кто хочет углубиться в тему AI."
+                  </p>
+                  <p className="text-[11px] text-gray-500 leading-relaxed">
+                    Мы собрали лучшие ресурсы от ведущих экспертов в области искусственного интеллекта. Подписывайтесь на рассылки, следите за каналами и будьте в курсе последних трендов.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bookshelf Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+              {BOOKSHELF_CATEGORIES.map((category, idx) => (
+                <div key={idx} className="bg-white border-2 border-gray-100 rounded-[2rem] p-8 hover:border-black transition-all hover:shadow-xl">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
+                      <span className="text-white font-black text-sm">{idx + 1}</span>
+                    </div>
+                    <h3 className="text-base font-black">{category.category}</h3>
+                  </div>
+                  <div className="space-y-2">
+                    {category.items.map((item, i) => (
+                      <a
+                        key={i}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group hover:bg-black hover:text-white transition-all"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <span className={`text-[8px] font-mono font-black px-1.5 py-0.5 rounded flex-shrink-0
+                            ${item.language === 'ru'
+                              ? 'bg-green-100 text-green-700 group-hover:bg-green-500 group-hover:text-white'
+                              : 'bg-gray-200 text-gray-600 group-hover:bg-white/20 group-hover:text-white'}`}>
+                            {item.language.toUpperCase()}
+                          </span>
+                          <div className="min-w-0">
+                            <p className="font-medium text-sm truncate">{item.name}</p>
+                            <p className="text-[10px] text-gray-400 group-hover:text-gray-300 truncate">{item.description}</p>
+                          </div>
+                        </div>
+                        <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 flex-shrink-0 ml-2" />
                       </a>
                     ))}
                   </div>

@@ -9,7 +9,8 @@ export const SECTIONS: Section[] = [
   { id: 'outcomes', title: '04 // РЕЗУЛЬТАТЫ' },
   { id: 'faq', title: '05 // FAQ' },
   { id: 'essentials', title: '06 // ОПЛАТА СЕРВИСОВ' },
-  { id: 'services', title: '07 // ССЫЛКИ НА СЕРВИСЫ' }
+  { id: 'services', title: '07 // ССЫЛКИ НА СЕРВИСЫ' },
+  { id: 'bookshelf', title: '08 // КНИЖНАЯ ПОЛКА' }
 ];
 
 export interface TrackerService {
@@ -547,6 +548,49 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     items: [
       { name: 'Rows', url: 'https://rows.com' },
       { name: 'Gemini в Google Sheets', url: 'https://workspace.google.com/products/sheets' }
+    ]
+  }
+];
+
+export interface BookshelfResource {
+  name: string;
+  url: string;
+  description: string;
+  language: 'ru' | 'en';
+}
+
+export interface BookshelfCategory {
+  category: string;
+  items: BookshelfResource[];
+}
+
+export const BOOKSHELF_CATEGORIES: BookshelfCategory[] = [
+  {
+    category: 'Рассылки',
+    items: [
+      { name: 'Every.to', url: 'https://every.to/', description: 'AI в работе и бизнесе, приложения', language: 'en' },
+      { name: 'How to AI', url: 'https://ruben.substack.com/', description: 'Практические промпты от Ruben Hassid', language: 'en' },
+      { name: 'One Useful Thing', url: 'https://www.oneusefulthing.org/', description: 'Этан Моллик об AI в работе и образовании', language: 'en' },
+      { name: 'The Batch', url: 'https://www.deeplearning.ai/the-batch/', description: 'Новости AI от DeepLearning.AI', language: 'en' },
+      { name: 'The Rundown AI', url: 'https://www.therundown.ai/', description: 'Дайджест AI-новостей', language: 'en' }
+    ]
+  },
+  {
+    category: 'Блоги',
+    items: [
+      { name: 'Import AI', url: 'https://jack-clark.net/', description: 'Глубокая аналитика AI от Jack Clark', language: 'en' }
+    ]
+  },
+  {
+    category: 'Telegram-каналы',
+    items: [
+      { name: 'Точки над AI', url: 'https://t.me/TochkiNadAI', description: 'Русскоязычный канал об AI', language: 'ru' }
+    ]
+  },
+  {
+    category: 'YouTube-каналы',
+    items: [
+      { name: 'AI Explained', url: 'https://www.youtube.com/@aiexplained-official', description: 'Разборы AI-технологий', language: 'en' }
     ]
   }
 ];
