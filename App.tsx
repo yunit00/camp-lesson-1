@@ -921,38 +921,43 @@ export default function App() {
               </div>
             </div>
 
-            {/* Bookshelf Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            {/* Bookshelf Content */}
+            <div className="space-y-12">
               {BOOKSHELF_CATEGORIES.map((category, idx) => (
-                <div key={idx} className="bg-white border-2 border-gray-100 rounded-[2rem] p-8 hover:border-black transition-all hover:shadow-xl">
-                  <div className="flex items-center gap-3 mb-6">
+                <div key={idx} className="space-y-6">
+                  {/* Category Header */}
+                  <div className="flex items-center gap-4 border-b-2 border-black pb-4">
                     <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
-                    <h3 className="text-base font-black">{category.category}</h3>
+                    <h3 className="text-2xl font-black tracking-tight">{category.category}</h3>
                   </div>
-                  <div className="space-y-2">
+
+                  {/* Resources Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {category.items.map((item, i) => (
                       <a
                         key={i}
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group hover:bg-black hover:text-white transition-all"
+                        className="group bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-black hover:shadow-xl transition-all"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <span className={`text-[8px] font-mono font-black px-1.5 py-0.5 rounded flex-shrink-0
-                            ${item.language === 'ru'
-                              ? 'bg-green-100 text-green-700 group-hover:bg-green-500 group-hover:text-white'
-                              : 'bg-gray-200 text-gray-600 group-hover:bg-white/20 group-hover:text-white'}`}>
-                            {item.language.toUpperCase()}
-                          </span>
-                          <div className="min-w-0">
-                            <p className="font-medium text-sm truncate">{item.name}</p>
-                            <p className="text-[10px] text-gray-400 group-hover:text-gray-300 truncate">{item.description}</p>
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <span className={`text-[10px] font-mono font-black px-2 py-1 rounded
+                                ${item.language === 'ru'
+                                  ? 'bg-green-100 text-green-700'
+                                  : 'bg-gray-100 text-gray-600'}`}>
+                                {item.language.toUpperCase()}
+                              </span>
+                            </div>
+                            <h4 className="font-bold text-lg mb-2 group-hover:underline">{item.name}</h4>
+                            <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
                           </div>
+                          <ExternalLink className="w-5 h-5 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 mt-1" />
                         </div>
-                        <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 flex-shrink-0 ml-2" />
                       </a>
                     ))}
                   </div>

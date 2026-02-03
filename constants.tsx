@@ -490,7 +490,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     category: 'Голосовой ввод и транскрибация',
     items: [
       { name: 'MacWhisper', url: 'https://goodsnooze.gumroad.com/l/macwhisper' },
-      { name: 'WhisperFlow', url: 'https://wisprflow.ai/' }
+      { name: 'WhisperFlow', url: 'https://wisprflow.ai/' },
+      { name: 'Handy', url: 'https://handy.computer/' }
     ]
   },
   {
@@ -547,7 +548,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     category: 'Работа с таблицами',
     items: [
       { name: 'Rows', url: 'https://rows.com' },
-      { name: 'Gemini в Google Sheets', url: 'https://workspace.google.com/products/sheets' }
+      { name: 'Gemini в Google Sheets', url: 'https://workspace.google.com/products/sheets' },
+      { name: 'Claude in Excel', url: 'https://claude.com/claude-in-excel' }
     ]
   }
 ];
