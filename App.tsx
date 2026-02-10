@@ -38,7 +38,8 @@ import {
   Layers,
   Palette,
   Volume2,
-  Link2
+  Link2,
+  Search
 } from 'lucide-react';
 import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES } from './constants';
 
@@ -112,7 +113,7 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
           </nav>
 
           <div className="mt-8 pt-6 border-t border-gray-200">
-            <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 19 Янв 2026</p>
+            <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 23 Фев 2026</p>
           </div>
         </div>
       </aside>
@@ -128,6 +129,8 @@ export default function App() {
   const [checkedServices, setCheckedServices] = useState<Record<string, boolean>>({});
   const [faqCategory, setFaqCategory] = useState('Общие вопросы');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [glossarySearch, setGlossarySearch] = useState('');
+  const [glossaryFocused, setGlossaryFocused] = useState(false);
   const mainContentRef = useRef<HTMLElement>(null);
   
   // Persist checked services
@@ -271,7 +274,7 @@ export default function App() {
                     <span className="text-[10px] font-mono font-black bg-black text-white px-3 py-1 rounded">НЕДЕЛЯ 0{week}</span>
                     <div className="h-px flex-1 bg-gray-100" />
                   </div>
-                  
+
                   <div className="space-y-10">
                     {DAILY_TRACKER.filter(d => d.week === week).map((day, di) => (
                       <div key={di} className="relative pl-8 border-l-2 border-gray-100 group hover:border-black transition-colors">
@@ -285,16 +288,16 @@ export default function App() {
                           </div>
                           <p className="text-sm text-gray-500">{day.details}</p>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                           {day.services.map((service) => (
-                            <div 
+                            <div
                               key={service.id}
                               onClick={() => toggleService(service.id)}
                               className={`
                                 cursor-pointer px-4 py-3 rounded-xl border transition-all duration-300 flex items-center gap-3 select-none
-                                ${checkedServices[service.id] 
-                                  ? 'bg-black border-black text-white shadow-xl shadow-black/30 scale-[1.05]' 
+                                ${checkedServices[service.id]
+                                  ? 'bg-black border-black text-white shadow-xl shadow-black/30 scale-[1.05]'
                                   : 'bg-white border-gray-100 hover:border-black hover:shadow-md active:scale-95'}
                               `}
                               style={{
@@ -317,22 +320,93 @@ export default function App() {
                   </div>
                 </div>
               ))}
+
+              <div className="space-y-8">
+                <div className="flex items-center gap-3">
+                  <div className="h-px flex-1 bg-gray-200" />
+                  <Sparkles className="w-5 h-5 text-black" />
+                  <div className="h-px flex-1 bg-gray-200" />
+                </div>
+
+                <div className="relative pl-8 border-l-2 border-dashed border-gray-200 group hover:border-black transition-colors">
+                  <div className="absolute -left-[11px] top-0 w-5 h-5 bg-black rounded-full flex items-center justify-center">
+                    <Sparkles className="w-3 h-3 text-white" />
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="text-xl font-bold flex items-center gap-2">
+                        Бонусный эфир: Разбор вопросов по проектам
+                      </h3>
+                      <span className="text-[10px] font-mono text-gray-400 border px-2 py-0.5 rounded">По запросу</span>
+                    </div>
+                    <p className="text-sm text-gray-500">Дополнительный эфир по запросу участников. Разбираем текущие вопросы и сложности в работе над проектами. День и время выбираются совместно в чате кэмпа.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         );
 
       case 'glossary':
+        const allTerms = GLOSSARY_CATEGORIES.flatMap(cat => cat.terms);
+        const suggestions = glossarySearch.length > 0
+          ? allTerms.filter(term => term.t.toLowerCase().startsWith(glossarySearch.toLowerCase())).slice(0, 6)
+          : [];
+        const filteredCategories = glossarySearch.length > 0
+          ? GLOSSARY_CATEGORIES.map(cat => ({
+              ...cat,
+              terms: cat.terms.filter(term => term.t.toLowerCase().includes(glossarySearch.toLowerCase()))
+            })).filter(cat => cat.terms.length > 0)
+          : GLOSSARY_CATEGORIES;
+
         return (
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
             <div className="flex items-center gap-4 mb-8">
               <BookOpen className="w-8 h-8 text-black" />
               <h2 className="text-4xl font-bold tracking-tight">Глоссарий терминов</h2>
             </div>
-            
+
+            <div className="relative mb-8">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  value={glossarySearch}
+                  onChange={(e) => setGlossarySearch(e.target.value)}
+                  onFocus={() => setGlossaryFocused(true)}
+                  onBlur={() => setTimeout(() => setGlossaryFocused(false), 200)}
+                  placeholder="Поиск термина..."
+                  className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-2xl text-sm font-medium focus:border-black focus:outline-none transition-colors"
+                />
+                {glossarySearch && (
+                  <button
+                    onClick={() => setGlossarySearch('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-colors"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+              {glossaryFocused && suggestions.length > 0 && (
+                <div className="absolute z-10 w-full mt-2 bg-white border-2 border-gray-100 rounded-2xl shadow-xl overflow-hidden">
+                  {suggestions.map((term, i) => (
+                    <button
+                      key={i}
+                      className="w-full text-left px-4 py-3 text-sm hover:bg-gray-50 transition-colors flex items-center gap-3 border-b border-gray-50 last:border-0"
+                      onMouseDown={() => setGlossarySearch(term.t)}
+                    >
+                      <Search className="w-3 h-3 text-gray-300" />
+                      <span className="font-bold">{term.t}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-              {GLOSSARY_CATEGORIES.map((cat, ci) => (
-                <div 
-                  key={ci} 
+              {filteredCategories.map((cat, ci) => (
+                <div
+                  key={ci}
                   className="break-inside-avoid-column mb-8 bg-white/50 border border-gray-100 p-6 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 border-b-2 border-black pb-3 mb-6">
@@ -354,6 +428,9 @@ export default function App() {
                 </div>
               ))}
             </div>
+            {glossarySearch && filteredCategories.length === 0 && (
+              <p className="text-center text-gray-400 text-sm font-medium mt-8">Термин не найден</p>
+            )}
           </div>
         );
 
@@ -411,10 +488,6 @@ export default function App() {
                           </ul>
                         </div>
                         
-                        {/* Decorative corner element */}
-                        <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-10 transition-opacity">
-                          <ArrowRight className="w-12 h-12 -rotate-45" />
-                        </div>
                       </div>
                     ))}
                   </div>
@@ -946,10 +1019,7 @@ export default function App() {
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <span className={`text-[10px] font-mono font-black px-2 py-1 rounded
-                                ${item.language === 'ru'
-                                  ? 'bg-green-100 text-green-700'
-                                  : 'bg-gray-100 text-gray-600'}`}>
+                              <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-gray-100 text-gray-600">
                                 {item.language.toUpperCase()}
                               </span>
                             </div>

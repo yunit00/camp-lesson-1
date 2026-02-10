@@ -35,7 +35,6 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'gemini', name: 'Gemini' },
       { id: 'dia', name: 'Dia' },
       { id: 'comet', name: 'Comet' },
-      { id: 'arc', name: 'Arc' }
     ]
   },
   { 
@@ -50,7 +49,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'cursor_tr', name: 'Cursor (обработка)' },
       { id: 'claude_tr', name: 'Claude (обработка)' },
       { id: 'youtube_tr', name: 'YouTube (транскрибация)' },
-      { id: 'tg_wa_merged', name: 'Telegram / WhatsApp' }
+      { id: 'tg_wa_merged', name: 'Telegram / WhatsApp' },
+      { id: 'handy', name: 'Handy' }
     ]
   },
   { 
@@ -69,10 +69,10 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '8',
-    topic: 'NotebookLM + Личный преподаватель', 
+    topic: 'NotebookLM + Личный преподаватель',
     format: 'Запись',
     details: 'Работа с документами и обучение',
-    week: 2,
+    week: 1,
     services: [
       { id: 'notebooklm', name: 'Google NotebookLM' },
       { id: 'chatgpt_projects', name: 'ChatGPT Projects' },
@@ -97,7 +97,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'terminal', name: 'Terminal' },
       { id: 'ai_studio', name: 'Google AI Studio' },
       { id: 'v0', name: 'v0 (by Vercel)' },
-      { id: 'nanobanano_pro', name: 'Nano Banana Pro' }
+      { id: 'nanobanano_pro', name: 'Nano Banana Pro' },
+      { id: 'codex', name: 'Codex' }
     ]
   },
   {
@@ -132,10 +133,10 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '15',
-    topic: 'Создание Telegram-бота', 
+    topic: 'Создание Telegram-бота',
     format: 'Документ',
     details: 'Создание ботов',
-    week: 3,
+    week: 2,
     services: [
       { id: 'botfather', name: 'BotFather' },
       { id: 'postgresql', name: 'PostgreSQL' },
@@ -159,7 +160,9 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'notes_sb', name: 'Notes' },
       { id: 'gemini_sb_day10', name: 'Gemini' },
       { id: 'cursor_sb', name: 'Cursor' },
-      { id: 'notebooklm_sb', name: 'NotebookLM' }
+      { id: 'notebooklm_sb', name: 'NotebookLM' },
+      { id: 'cowork', name: 'Co-work' },
+      { id: 'openclaw', name: 'OpenClaw' }
     ]
   },
   {
@@ -219,7 +222,9 @@ export const GLOSSARY_CATEGORIES = [
       { t: 'Grounding (Заземление)', d: 'Когда модель отвечает только на основе файлов, без галлюцинаций.' },
       { t: 'Мультимодальность', d: 'Способность модели работать с текстом, изображениями, аудио и видео.' },
       { t: 'Генеративный интерфейс', d: 'Интерфейсы, создаваемые AI по текстовому запросу.' },
-      { t: 'Браузерные агенты', d: 'AI-расширения, которые могут управлять браузером за вас.' }
+      { t: 'Браузерные агенты', d: 'AI-расширения, которые могут управлять браузером за вас.' },
+      { t: 'ML (Machine Learning)', d: 'Машинное обучение: область ИИ, где модели учатся на данных без явного программирования.' },
+      { t: 'RL (Reinforcement Learning)', d: 'Обучение с подкреплением: модель учится через награды и штрафы за свои действия.' }
     ]
   },
   {
@@ -229,7 +234,10 @@ export const GLOSSARY_CATEGORIES = [
       { t: 'AI-мышление', d: 'Способ думать о задачах, используя весь доступный контекст.' },
       { t: 'Обратный инжиниринг', d: 'Упаковка удачной сессии с LLM в промпт или другую единицу контента.' },
       { t: 'Рекурсивное обучение', d: 'Когда AI объясняет код, который сам же и создал.' },
-      { t: 'Garbage In — Garbage Out', d: 'Качество ответа модели напрямую зависит от чистоты входящих данных.' }
+      { t: 'Garbage In — Garbage Out', d: 'Качество ответа модели напрямую зависит от чистоты входящих данных.' },
+      { t: 'Агент (Agent)', d: 'Автономная AI-система, способная планировать и выполнять задачи самостоятельно.' },
+      { t: 'Рой агентов (Agent Swarm)', d: 'Группа AI-агентов, работающих вместе над сложной задачей, распределяя роли и координируя действия.' },
+      { t: 'Скилл (Skill)', d: 'Навык внутри AI-агента: конкретная способность или инструмент, который агент использует для выполнения задач.' }
     ]
   },
   {
@@ -247,7 +255,8 @@ export const GLOSSARY_CATEGORIES = [
       { t: 'Бэкенд', d: 'Серверная часть приложения (логика, база данных).' },
       { t: 'Фронтенд', d: 'Визуальная часть приложения (интерфейс пользователя).' },
       { t: 'Домен', d: 'Имя сайта в интернете (например, site.ru).' },
-      { t: 'DNS', d: 'Система, связывающая доменное имя с IP-адресом сервера.' }
+      { t: 'DNS', d: 'Система, связывающая доменное имя с IP-адресом сервера.' },
+      { t: 'Терминал (Terminal)', d: 'Текстовый интерфейс для управления компьютером через команды. Позволяет запускать программы, работать с файлами и управлять проектами.' }
     ]
   },
   {
@@ -268,7 +277,8 @@ export const GLOSSARY_CATEGORIES = [
       { t: 'Валидация', d: 'Проверка правильности полученного результата.' },
       { t: 'Самокритика', d: 'Когда модель оценивает свой собственный ответ и улучшает его.' },
       { t: 'Рефлексия', d: 'Процесс, когда модель анализирует свои действия для повышения точности.' },
-      { t: 'Контекстное окно', d: 'Объем информации, который модель может одновременно "удержать в голове".' }
+      { t: 'Контекстное окно', d: 'Объем информации, который модель может одновременно "удержать в голове".' },
+      { t: 'PRD (Product Requirements Document)', d: 'Документ с требованиями к продукту: описывает что нужно создать, для кого и зачем.' }
     ]
   },
   {
@@ -458,7 +468,9 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'ChatGPT', url: 'https://chatgpt.com' },
       { name: 'Gemini', url: 'https://gemini.google.com' },
       { name: 'Perplexity', url: 'https://perplexity.ai' },
-      { name: 'Kimi', url: 'https://kimi.moonshot.cn' }
+      { name: 'Kimi', url: 'https://kimi.moonshot.cn' },
+      { name: 'DeepSeek', url: 'https://www.deepseek.com/' },
+      { name: 'Grok', url: 'https://grok.com/' }
     ]
   },
   {
@@ -472,7 +484,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Google AI Studio', url: 'https://aistudio.google.com' },
       { name: 'Kimi K2', url: 'https://kimi.moonshot.cn' },
       { name: 'ChatGPT Canvas', url: 'https://chatgpt.com' },
-      { name: 'Gemini Canvas', url: 'https://gemini.google.com' }
+      { name: 'Gemini Canvas', url: 'https://gemini.google.com' },
+      { name: 'Codex', url: 'https://openai.com/ru-RU/codex/' }
     ]
   },
   {
@@ -514,7 +527,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
   {
     category: 'Версионирование кода',
     items: [
-      { name: 'GitHub', url: 'https://github.com' }
+      { name: 'GitHub', url: 'https://github.com' },
+      { name: 'GitHub Desktop', url: 'https://desktop.github.com/download/' }
     ]
   },
   {
@@ -522,7 +536,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     items: [
       { name: 'OpenRouter', url: 'https://openrouter.ai' },
       { name: 'OpenAI API', url: 'https://platform.openai.com' },
-      { name: 'BotFather (Telegram)', url: 'https://t.me/BotFather' }
+      { name: 'BotFather (Telegram)', url: 'https://t.me/BotFather' },
+      { name: 'Groq API', url: 'https://console.groq.com/keys' }
     ]
   },
   {
@@ -574,19 +589,28 @@ export const BOOKSHELF_CATEGORIES: BookshelfCategory[] = [
       { name: 'How to AI', url: 'https://ruben.substack.com/', description: 'Практические промпты от Ruben Hassid', language: 'en' },
       { name: 'One Useful Thing', url: 'https://www.oneusefulthing.org/', description: 'Этан Моллик об AI в работе и образовании', language: 'en' },
       { name: 'The Batch', url: 'https://www.deeplearning.ai/the-batch/', description: 'Новости AI от DeepLearning.AI', language: 'en' },
-      { name: 'The Rundown AI', url: 'https://www.therundown.ai/', description: 'Дайджест AI-новостей', language: 'en' }
+      { name: 'The Rundown AI', url: 'https://www.therundown.ai/', description: 'Дайджест AI-новостей', language: 'en' },
+      { name: 'The Zvi', url: 'https://thezvi.substack.com/', description: 'Аналитика AI-трендов от Zvi Mowshowitz', language: 'en' }
     ]
   },
   {
     category: 'Блоги',
     items: [
-      { name: 'Import AI', url: 'https://jack-clark.net/', description: 'Глубокая аналитика AI от Jack Clark', language: 'en' }
+      { name: 'Import AI', url: 'https://jack-clark.net/', description: 'Глубокая аналитика AI от Jack Clark', language: 'en' },
+      { name: 'Karpathy Blog', url: 'https://karpathy.bearblog.dev/blog/', description: 'Блог Андрея Карпати о нейросетях и AI', language: 'en' },
+      { name: 'Jeff Bullas', url: 'https://www.jeffbullas.com/jabs/', description: 'Блог о digital-маркетинге и AI', language: 'en' },
+      { name: 'Dario Amodei', url: 'https://www.darioamodei.com/', description: 'Блог CEO Anthropic об AI и безопасности', language: 'en' }
     ]
   },
   {
     category: 'Telegram-каналы',
     items: [
-      { name: 'Точки над AI', url: 'https://t.me/TochkiNadAI', description: 'Русскоязычный канал об AI', language: 'ru' }
+      { name: 'Точки над ИИ', url: 'https://t.me/TochkiNadAI', description: 'Русскоязычный канал об AI', language: 'ru' },
+      { name: 'DenisSexyIT', url: 'https://t.me/denissexy', description: 'Канал о технологиях и AI', language: 'ru' },
+      { name: 'Data Secrets', url: 'https://t.me/data_secrets', description: 'Секреты работы с данными и AI', language: 'ru' },
+      { name: 'Сиолошная', url: 'https://t.me/seeallochnaya', description: 'Канал об AI и технологиях', language: 'ru' },
+      { name: 'AI Newz', url: 'https://t.me/ai_newz', description: 'Новости искусственного интеллекта', language: 'ru' },
+      { name: 'NeuralShit', url: 'https://t.me/NeuralShit', description: 'Канал о нейросетях', language: 'ru' }
     ]
   },
   {
