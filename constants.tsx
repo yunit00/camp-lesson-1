@@ -6,11 +6,11 @@ export const SECTIONS: Section[] = [
   { id: 'tracker', title: '01 // ТРЕКЕР КЭМПА' },
   { id: 'glossary', title: '02 // ГЛОССАРИЙ' },
   { id: 'inspiration', title: '03 // ВДОХНОВЕНИЕ' },
-  { id: 'outcomes', title: '04 // РЕЗУЛЬТАТЫ' },
-  { id: 'faq', title: '05 // FAQ' },
-  { id: 'essentials', title: '06 // ОПЛАТА СЕРВИСОВ' },
-  { id: 'services', title: '07 // ССЫЛКИ НА СЕРВИСЫ' },
-  { id: 'bookshelf', title: '08 // КНИЖНАЯ ПОЛКА' }
+  { id: 'essentials', title: '04 // ОПЛАТА СЕРВИСОВ' },
+  { id: 'services', title: '05 // ССЫЛКИ НА СЕРВИСЫ' },
+  { id: 'bookshelf', title: '06 // КНИЖНАЯ ПОЛКА' },
+  { id: 'outcomes', title: '07 // РЕЗУЛЬТАТЫ' },
+  { id: 'faq', title: '08 // FAQ' }
 ];
 
 export interface TrackerService {
@@ -35,6 +35,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'gemini', name: 'Gemini' },
       { id: 'dia', name: 'Dia' },
       { id: 'comet', name: 'Comet' },
+      { id: 'manus_bot', name: 'Manus Bot' },
     ]
   },
   { 
@@ -78,6 +79,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'chatgpt_projects', name: 'ChatGPT Projects' },
       { id: 'ai_studio_day5', name: 'Google AI Studio' },
       { id: 'google_labs', name: 'Google Labs' },
+      { id: 'google_labs_link', name: 'Google Labs (labs.google)' },
       { id: 'gemini_doc', name: 'Gemini' },
       { id: 'gdrive', name: 'Google Drive (импорт)' },
       { id: 'yt_import', name: 'YouTube (импорт)' }
@@ -98,7 +100,11 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'ai_studio', name: 'Google AI Studio' },
       { id: 'v0', name: 'v0 (by Vercel)' },
       { id: 'nanobanano_pro', name: 'Nano Banana Pro' },
-      { id: 'codex', name: 'Codex' }
+      { id: 'codex', name: 'Codex' },
+      { id: 'claude_cowork', name: 'Claude Co-Work' },
+      { id: 'qoder', name: 'Qoder' },
+      { id: 'natively', name: 'Natively' },
+      { id: 'variant', name: 'Variant' }
     ]
   },
   {
@@ -470,7 +476,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Perplexity', url: 'https://perplexity.ai' },
       { name: 'Kimi', url: 'https://kimi.moonshot.cn' },
       { name: 'DeepSeek', url: 'https://www.deepseek.com/' },
-      { name: 'Grok', url: 'https://grok.com/' }
+      { name: 'Grok', url: 'https://grok.com/' },
+      { name: 'Manus Bot', url: 'https://t.me/manus_ai_agent_bot' }
     ]
   },
   {
@@ -485,7 +492,11 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Kimi K2', url: 'https://kimi.moonshot.cn' },
       { name: 'ChatGPT Canvas', url: 'https://chatgpt.com' },
       { name: 'Gemini Canvas', url: 'https://gemini.google.com' },
-      { name: 'Codex', url: 'https://openai.com/ru-RU/codex/' }
+      { name: 'Codex', url: 'https://openai.com/ru-RU/codex/' },
+      { name: 'Claude Co-Work', url: 'https://claude.com/blog/cowork-research-preview' },
+      { name: 'Qoder', url: 'https://qoder.com/' },
+      { name: 'Natively', url: 'https://natively.dev/' },
+      { name: 'Variant', url: 'https://variant.com/community' }
     ]
   },
   {
@@ -512,7 +523,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     items: [
       { name: 'Google NotebookLM', url: 'https://notebooklm.google.com' },
       { name: 'Google AI Studio', url: 'https://aistudio.google.com' },
-      { name: 'Notion', url: 'https://notion.so' }
+      { name: 'Notion', url: 'https://notion.so' },
+      { name: 'Google Labs', url: 'https://labs.google/' }
     ]
   },
   {

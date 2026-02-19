@@ -931,10 +931,10 @@ export default function App() {
               </div>
             </div>
 
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            {/* Services Grid - Masonry */}
+            <div className="columns-1 lg:columns-2 xl:columns-3 gap-6 space-y-6">
               {SERVICES_LINKS.map((category, idx) => (
-                <div key={idx} className="bg-white border-2 border-gray-100 rounded-[2rem] p-8 hover:border-black transition-all hover:shadow-xl">
+                <div key={idx} className="break-inside-avoid bg-white border-2 border-gray-100 rounded-[2rem] p-8 hover:border-black transition-all hover:shadow-xl">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
                       <span className="text-white font-black text-sm">{idx + 1}</span>
