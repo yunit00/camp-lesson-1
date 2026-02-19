@@ -16,6 +16,7 @@ export interface Tool {
 
 export interface CourseDay {
   day: string;
+  date?: string;
   topic: string;
   format: string;
   details: string;

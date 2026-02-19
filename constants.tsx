@@ -24,7 +24,8 @@ export interface TrackerDay extends CourseDay {
 
 export const DAILY_TRACKER: TrackerDay[] = [
   { 
-    day: '2', 
+    day: '2',
+    date: '24 февраля',
     topic: 'Вводная лекция + AI-браузеры', 
     format: 'Эфир 19:00 (MSK)',
     details: 'Обзор AI-трендов 2026, программа кэмпа',
@@ -39,7 +40,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
     ]
   },
   { 
-    day: '3', 
+    day: '3',
+    date: '25 февраля',
     topic: 'Whisper', 
     format: 'Запись',
     details: 'Голосовой ввод текста',
@@ -55,7 +57,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
     ]
   },
   { 
-    day: '4', 
+    day: '4',
+    date: '26 февраля',
     topic: 'Контекст-инжиниринг', 
     format: 'Запись',
     details: 'Работа с контекстом для LLM',
@@ -70,6 +73,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '5',
+    date: '27 февраля',
     topic: 'NotebookLM + Личный преподаватель',
     format: 'Запись',
     details: 'Работа с документами и обучение',
@@ -87,6 +91,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '9',
+    date: '3 марта',
     topic: 'Вайбкодинг', 
     format: 'Эфир 19:00 (MSK)',
     details: 'Базовый Vibe Coding',
@@ -109,6 +114,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '10',
+    date: '4 марта',
     topic: 'Суперклей проектов', 
     format: 'Документ',
     details: 'Инфраструктура проектов',
@@ -123,6 +129,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '11',
+    date: '5 марта',
     topic: 'Создание лендингов и сайтов', 
     format: 'Эфир 19:00 (MSK)',
     details: 'Создание сайтов с AI',
@@ -139,6 +146,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '12',
+    date: '6 марта',
     topic: 'Создание Telegram-бота',
     format: 'Документ',
     details: 'Создание ботов',
@@ -155,6 +163,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '16',
+    date: '10 марта',
     topic: 'Второй мозг + саммари', 
     format: 'Запись',
     details: 'Second Brain система',
@@ -173,6 +182,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '17',
+    date: '11 марта',
     topic: 'Презентации', 
     format: 'Запись',
     details: 'Создание презентаций с AI',
@@ -188,6 +198,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '18',
+    date: '12 марта',
     topic: 'AI в работе с таблицами', 
     format: 'Запись',
     details: 'AI-ассистенты по работе с таблицами',
@@ -200,6 +211,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '21',
+    date: '15 марта',
     topic: 'Демо-день', 
     format: 'Эфир 19:00 (MSK)',
     details: 'Презентация проектов',

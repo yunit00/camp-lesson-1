@@ -113,8 +113,19 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
             ))}
           </nav>
 
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 23 Фев 2026</p>
+          <div className="mt-8 pt-6 border-t border-gray-200 space-y-4">
+            <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 24 Фев 2026</p>
+            <div className="flex flex-col gap-2">
+              <a href="https://tochkicamp.ru/" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-2">
+                <Globe className="w-3 h-3" /> Сайт кэмпа
+              </a>
+              <a href="https://t.me/TochkiNadAI" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-2">
+                <MessageSquare className="w-3 h-3" /> Telegram-канал
+              </a>
+              <a href="https://t.me/tochkicamp_bot" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-2">
+                <Bot className="w-3 h-3" /> Бот кэмпа
+              </a>
+            </div>
           </div>
         </div>
       </aside>
@@ -284,6 +295,7 @@ export default function App() {
                           <div className="flex items-center justify-between mb-1">
                             <h3 className="text-xl font-bold flex items-center gap-2">
                               День {day.day}: {day.topic}
+                              {day.date && <span className="text-[10px] font-mono text-gray-400 font-normal ml-1">({day.date})</span>}
                             </h3>
                             <span className="text-[10px] font-mono text-gray-400 border px-2 py-0.5 rounded">{day.format}</span>
                           </div>
