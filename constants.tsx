@@ -68,7 +68,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
     ]
   },
   {
-    day: '8',
+    day: '5',
     topic: 'NotebookLM + Личный преподаватель',
     format: 'Запись',
     details: 'Работа с документами и обучение',
@@ -132,7 +132,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
     ]
   },
   {
-    day: '15',
+    day: '12',
     topic: 'Создание Telegram-бота',
     format: 'Документ',
     details: 'Создание ботов',
@@ -576,10 +576,32 @@ export interface BookshelfResource {
   language: 'ru' | 'en';
 }
 
+export interface BookshelfGuide {
+  name: string;
+  file: string;
+  description: string;
+  size: string;
+}
+
 export interface BookshelfCategory {
   category: string;
   items: BookshelfResource[];
 }
+
+export const BOOKSHELF_GUIDES: BookshelfGuide[] = [
+  {
+    name: 'OpenClaw — Полное руководство',
+    file: '/books/OpenClaw_RU.pdf',
+    description: 'Защищённое развёртывание OpenClaw: руководство для нетехнических пользователей. Безопасное развёртывание с помощью Ansible и контейнеров Podman.',
+    size: '5.9 MB'
+  },
+  {
+    name: 'Explain OpenClaw — Полное руководство',
+    file: '/books/OpenClaw_Explain_RU.pdf',
+    description: 'Перевод репозитория centminmod/explain-openclaw. Подробное объяснение архитектуры и компонентов OpenClaw.',
+    size: '496 KB'
+  }
+];
 
 export const BOOKSHELF_CATEGORIES: BookshelfCategory[] = [
   {

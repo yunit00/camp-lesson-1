@@ -39,9 +39,10 @@ import {
   Palette,
   Volume2,
   Link2,
-  Search
+  Search,
+  Download
 } from 'lucide-react';
-import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES } from './constants';
+import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES, BOOKSHELF_GUIDES } from './constants';
 
 // Logo Component - inline SVG for production compatibility
 const Logo = ({ className }: { className?: string }) => (
@@ -991,6 +992,40 @@ export default function App() {
                     Мы собрали лучшие ресурсы от ведущих экспертов в области искусственного интеллекта. Подписывайтесь на рассылки, следите за каналами и будьте в курсе последних трендов.
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Guides Section */}
+            <div className="space-y-6 mb-12">
+              <div className="flex items-center gap-4 border-b-2 border-black pb-4">
+                <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-2xl font-black tracking-tight">Гайды</h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {BOOKSHELF_GUIDES.map((guide, i) => (
+                  <a
+                    key={i}
+                    href={guide.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-black hover:shadow-xl transition-all"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-red-50 text-red-600">PDF</span>
+                          <span className="text-[10px] font-mono text-gray-400">{guide.size}</span>
+                        </div>
+                        <h4 className="font-bold text-lg mb-2 group-hover:underline">{guide.name}</h4>
+                        <p className="text-sm text-gray-500 leading-relaxed">{guide.description}</p>
+                      </div>
+                      <Download className="w-5 h-5 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 mt-1" />
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
 
