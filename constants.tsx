@@ -614,16 +614,28 @@ export interface BookshelfCategory {
 
 export const BOOKSHELF_GUIDES: BookshelfGuide[] = [
   {
-    name: 'OpenClaw — Полное руководство',
+    name: 'OpenClaw — Безопасное развёртывание',
     file: '/books/OpenClaw_RU.pdf',
-    description: 'Защищённое развёртывание OpenClaw: руководство для нетехнических пользователей. Безопасное развёртывание с помощью Ansible и контейнеров Podman.',
+    description: 'Руководство по защищённому развёртыванию OpenClaw для нетехнических пользователей. Сетевая изоляция, лимиты API и фильтрация трафика с помощью Ansible и Podman.',
     size: '5.9 MB'
   },
   {
-    name: 'Explain OpenClaw — Полное руководство',
+    name: 'OpenClaw — Обзор архитектуры',
     file: '/books/OpenClaw_Explain_RU.pdf',
     description: 'Перевод репозитория centminmod/explain-openclaw. Подробное объяснение архитектуры и компонентов OpenClaw.',
     size: '496 KB'
+  },
+  {
+    name: 'Руководство по оценке LLM',
+    file: '/books/LLM_Evaluation_Guidebook_ru.pdf',
+    description: 'Hugging Face: всё об оценке больших языковых моделей — на основе опыта оценки 15 000 моделей за 3 года.',
+    size: '5 MB'
+  },
+  {
+    name: 'Создание навыков для Claude',
+    file: '/books/Skill-for-Claude_RU_t.me_aivkube_30.01.2026.pdf',
+    description: 'Полное руководство по созданию навыков (Skills) для Claude.',
+    size: '2.4 MB'
   }
 ];
 
