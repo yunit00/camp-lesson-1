@@ -137,6 +137,9 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
 
 export default function App() {
   const [activeSection, setActiveSection] = useState(() => {
+    const hash = window.location.hash.slice(1);
+    const validIds = SECTIONS.map(s => s.id);
+    if (hash && validIds.includes(hash)) return hash;
     return localStorage.getItem('ai_camp_active_section') || 'intro';
   });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -153,9 +156,25 @@ export default function App() {
     if (saved) setCheckedServices(JSON.parse(saved));
   }, []);
 
-  // Handle section changes: persist and scroll to top
+  // Listen for browser back/forward navigation
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      const validIds = SECTIONS.map(s => s.id);
+      if (hash && validIds.includes(hash)) {
+        setActiveSection(hash);
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  // Handle section changes: persist, update URL hash, and scroll to top
   useEffect(() => {
     localStorage.setItem('ai_camp_active_section', activeSection);
+    if (window.location.hash.slice(1) !== activeSection) {
+      window.location.hash = activeSection;
+    }
     if (mainContentRef.current) {
       mainContentRef.current.scrollTop = 0;
     }
