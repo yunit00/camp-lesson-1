@@ -1,5 +1,5 @@
 
-import { Section, CourseDay, ProjectExample, FAQItem, OutcomeCategory } from './types';
+import { Section, CourseDay, ProjectExample, FAQItem, OutcomeCategory, MicroLesson } from './types';
 
 export const SECTIONS: Section[] = [
   { id: 'intro', title: '00 // ВВЕДЕНИЕ' },
@@ -9,8 +9,9 @@ export const SECTIONS: Section[] = [
   { id: 'essentials', title: '04 // ОПЛАТА СЕРВИСОВ' },
   { id: 'services', title: '05 // ССЫЛКИ НА СЕРВИСЫ' },
   { id: 'bookshelf', title: '06 // КНИЖНАЯ ПОЛКА' },
-  { id: 'outcomes', title: '07 // РЕЗУЛЬТАТЫ' },
-  { id: 'faq', title: '08 // FAQ' }
+  { id: 'microlessons', title: '07 // МИКРОУРОКИ' },
+  { id: 'outcomes', title: '08 // РЕЗУЛЬТАТЫ' },
+  { id: 'faq', title: '09 // FAQ' }
 ];
 
 export interface TrackerService {
@@ -729,4 +730,31 @@ export const BOOKSHELF_CATEGORIES: BookshelfCategory[] = [
       { name: 'AI Explained', url: 'https://www.youtube.com/@aiexplained-official', description: 'Разборы AI-технологий', language: 'en' }
     ]
   }
+];
+
+export const MICRO_LESSONS: MicroLesson[] = [
+  {
+    id: 'llm-overview',
+    title: 'LLM. Базовый обзор больших языковых моделей',
+    description: 'Что такое большие языковые модели, как они работают и чем отличаются друг от друга. Фундамент для понимания всех AI-инструментов.',
+    youtubeId: 'gRKHaEicIec',
+    duration: 'Видео',
+    tag: 'Основы'
+  },
+  {
+    id: 'claude-code',
+    title: 'Claude Code. Знакомство с инструментом',
+    description: 'Обзор Claude Code — терминального AI-ассистента от Anthropic. Установка, настройка и первые шаги.',
+    youtubeId: 'nvZ-5JQyY4E',
+    duration: 'Видео',
+    tag: 'Инструменты'
+  },
+  {
+    id: 'google-ai-studio',
+    title: 'Google AI Studio. Знакомство с платформой',
+    description: 'Как работать с Google AI Studio: интерфейс, возможности и практические примеры использования.',
+    youtubeId: 'C-X_YCKglk8',
+    duration: 'Видео',
+    tag: 'Инструменты'
+  },
 ];

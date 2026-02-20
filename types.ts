@@ -51,3 +51,12 @@ export interface OutcomeCategory {
   title: string;
   items: OutcomeSubItem[];
 }
+
+export interface MicroLesson {
+  id: string;
+  title: string;
+  description: string;
+  youtubeId: string;
+  duration: string;
+  tag: string;
+}

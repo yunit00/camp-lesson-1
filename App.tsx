@@ -40,9 +40,11 @@ import {
   Volume2,
   Link2,
   Search,
-  Download
+  Download,
+  PlayCircle,
+  Clock
 } from 'lucide-react';
-import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES, BOOKSHELF_GUIDES } from './constants';
+import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES, BOOKSHELF_GUIDES, MICRO_LESSONS } from './constants';
 
 // Logo Component - inline SVG for production compatibility
 const Logo = ({ className }: { className?: string }) => (
@@ -1081,6 +1083,120 @@ export default function App() {
                 </div>
               ))}
             </div>
+          </div>
+        );
+
+      case 'microlessons':
+        return (
+          <div className="animate-in slide-in-from-right-4 fade-in duration-500">
+            {/* Header Section */}
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+                    <PlayCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-gray-400">Video Lessons</span>
+                </div>
+                <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Микро<br/>уроки</h2>
+              </div>
+
+              <div className="bg-white border-2 border-gray-100 p-8 rounded-[2.5rem] max-w-xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
+                  <PlayCircle className="w-24 h-24 text-black" />
+                </div>
+                <div className="flex items-center gap-2 text-black mb-4">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest">Для новичков и не только</span>
+                </div>
+                <div className="space-y-4 relative z-10">
+                  <p className="text-xs text-gray-700 leading-relaxed font-medium italic">
+                    "Короткие видеоуроки для закрепления материала и освоения новых навыков."
+                  </p>
+                  <p className="text-[11px] text-gray-500 leading-relaxed">
+                    Этот раздел не является частью основной программы, но всегда доступен для изучения. Микроуроки посвящены разным темам и постоянно пополняются на основе запросов участников кэмпа.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Lessons Grid */}
+            {MICRO_LESSONS.length > 0 ? (
+              <div className="space-y-6">
+                {/* Featured first lesson — full width */}
+                {MICRO_LESSONS.length > 0 && (
+                  <div className="bg-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-black hover:shadow-xl transition-all">
+                    <div className="flex flex-col lg:flex-row">
+                      <div className="aspect-video lg:w-3/5 flex-shrink-0">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${MICRO_LESSONS[0].youtubeId}`}
+                          title={MICRO_LESSONS[0].title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          loading="lazy"
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div className="p-6 lg:p-8 flex flex-col justify-center">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-black text-white">
+                            {MICRO_LESSONS[0].tag}
+                          </span>
+                          <span className="flex items-center gap-1 text-[10px] font-mono text-gray-400">
+                            <Clock className="w-3 h-3" />
+                            {MICRO_LESSONS[0].duration}
+                          </span>
+                        </div>
+                        <h4 className="font-black text-2xl mb-3 tracking-tight">{MICRO_LESSONS[0].title}</h4>
+                        <p className="text-sm text-gray-500 leading-relaxed">{MICRO_LESSONS[0].description}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Remaining lessons — 2 column grid */}
+                {MICRO_LESSONS.length > 1 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {MICRO_LESSONS.slice(1).map((lesson) => (
+                      <div
+                        key={lesson.id}
+                        className="bg-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-black hover:shadow-xl transition-all"
+                      >
+                        <div className="aspect-video">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${lesson.youtubeId}`}
+                            title={lesson.title}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                            className="w-full h-full"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-gray-100 text-gray-600">
+                              {lesson.tag}
+                            </span>
+                            <span className="flex items-center gap-1 text-[10px] font-mono text-gray-400">
+                              <Clock className="w-3 h-3" />
+                              {lesson.duration}
+                            </span>
+                          </div>
+                          <h4 className="font-bold text-lg mb-2">{lesson.title}</h4>
+                          <p className="text-sm text-gray-500 leading-relaxed">{lesson.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="bg-white border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center">
+                <PlayCircle className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+                <p className="text-gray-400 font-medium">Микроуроки скоро появятся</p>
+                <p className="text-[11px] text-gray-300 mt-2">Раздел пополняется на основе запросов участников</p>
+              </div>
+            )}
           </div>
         );
 
