@@ -313,12 +313,14 @@ export default function App() {
                       <div key={di} className="relative pl-8 border-l-2 border-gray-100 group hover:border-black transition-colors">
                         <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white border-2 border-gray-200 rounded-full group-hover:border-black transition-colors" />
                         <div className="mb-4">
-                          <div className="flex items-center justify-between mb-1">
-                            <h3 className="text-xl font-bold flex items-center gap-2">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 mb-1">
+                            <h3 className="text-lg sm:text-xl font-bold">
                               День {day.day}: {day.topic}
-                              {day.date && <span className="text-[10px] font-mono text-gray-400 font-normal ml-1">({day.date})</span>}
                             </h3>
-                            <span className="text-[10px] font-mono text-gray-400 border px-2 py-0.5 rounded">{day.format}</span>
+                            <div className="flex items-center gap-2 flex-shrink-0">
+                              {day.date && <span className="text-[10px] font-mono text-gray-400 font-normal">({day.date})</span>}
+                              <span className="text-[10px] font-mono text-gray-400 border px-2 py-0.5 rounded whitespace-nowrap">{day.format}</span>
+                            </div>
                           </div>
                           <p className="text-sm text-gray-500">{day.details}</p>
                         </div>
