@@ -83,8 +83,8 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
         fixed inset-y-0 left-0 z-50 w-72 bg-[#f4f4f2] border-r border-gray-200/50 transform transition-transform duration-300 ease-in-out lg:translate-x-0
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        <div className="flex flex-col h-full p-8">
-          <div className="mb-12 flex items-center justify-between">
+        <div className="flex flex-col h-full p-5 lg:p-8">
+          <div className="mb-6 lg:mb-12 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-black tracking-tighter">AI CAMP</h1>
               <p className="text-[10px] text-gray-400 font-mono tracking-widest mt-1 uppercase">STUDENT_GUIDE</p>
@@ -94,7 +94,7 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
             </button>
           </div>
 
-          <nav className="flex-1 space-y-2 overflow-y-auto pr-2 custom-scrollbar">
+          <nav className="flex-1 space-y-1 lg:space-y-2 overflow-y-auto pr-2 custom-scrollbar">
             {SECTIONS.map((section) => (
               <button
                 key={section.id}
@@ -103,9 +103,9 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
                   onClose();
                 }}
                 className={`
-                  w-full text-left px-4 py-3 rounded-lg text-xs font-mono transition-all duration-200 flex items-center justify-between group
-                  ${activeSection === section.id 
-                    ? 'bg-black text-white shadow-lg shadow-black/10' 
+                  w-full text-left px-4 py-2 lg:py-3 rounded-lg text-xs font-mono transition-all duration-200 flex items-center justify-between group
+                  ${activeSection === section.id
+                    ? 'bg-black text-white shadow-lg shadow-black/10'
                     : 'text-gray-500 hover:bg-gray-200/60 hover:text-black'}
                 `}
               >
@@ -115,18 +115,20 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
             ))}
           </nav>
 
-          <div className="mt-8 pt-6 border-t border-gray-200 space-y-4">
-            <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 24 Фев 2026</p>
-            <div className="flex flex-col gap-2">
-              <a href="https://tochkicamp.ru/" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-2">
-                <Globe className="w-3 h-3" /> Сайт кэмпа
-              </a>
-              <a href="https://t.me/TochkiNadAI" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-2">
-                <MessageSquare className="w-3 h-3" /> Telegram-канал
-              </a>
-              <a href="https://t.me/tochkicamp_bot" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-2">
-                <Bot className="w-3 h-3" /> Бот кэмпа
-              </a>
+          <div className="mt-4 lg:mt-8 pt-4 lg:pt-6 border-t border-gray-200">
+            <div className="flex items-center justify-between lg:flex-col lg:items-start lg:gap-4">
+              <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 24 Фев 2026</p>
+              <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-2">
+                <a href="https://tochkicamp.ru/" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-1.5 lg:gap-2" title="Сайт кэмпа">
+                  <Globe className="w-3.5 h-3.5 lg:w-3 lg:h-3" /> <span className="hidden lg:inline">Сайт кэмпа</span>
+                </a>
+                <a href="https://t.me/TochkiNadAI" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-1.5 lg:gap-2" title="Telegram-канал">
+                  <MessageSquare className="w-3.5 h-3.5 lg:w-3 lg:h-3" /> <span className="hidden lg:inline">Telegram-канал</span>
+                </a>
+                <a href="https://t.me/tochkicamp_bot" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-1.5 lg:gap-2" title="Бот кэмпа">
+                  <Bot className="w-3.5 h-3.5 lg:w-3 lg:h-3" /> <span className="hidden lg:inline">Бот кэмпа</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
