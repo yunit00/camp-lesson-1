@@ -654,44 +654,10 @@ export interface BookshelfResource {
   language: 'ru' | 'en';
 }
 
-export interface BookshelfGuide {
-  name: string;
-  file: string;
-  description: string;
-  size: string;
-}
-
 export interface BookshelfCategory {
   category: string;
   items: BookshelfResource[];
 }
-
-export const BOOKSHELF_GUIDES: BookshelfGuide[] = [
-  {
-    name: 'OpenClaw — Безопасное развёртывание',
-    file: '/books/OpenClaw_RU.pdf',
-    description: 'Руководство по защищённому развёртыванию OpenClaw для нетехнических пользователей. Сетевая изоляция, лимиты API и фильтрация трафика с помощью Ansible и Podman.',
-    size: '5.9 MB'
-  },
-  {
-    name: 'OpenClaw — Обзор архитектуры',
-    file: '/books/OpenClaw_Explain_RU.pdf',
-    description: 'Перевод репозитория centminmod/explain-openclaw. Подробное объяснение архитектуры и компонентов OpenClaw.',
-    size: '496 KB'
-  },
-  {
-    name: 'Руководство по оценке LLM',
-    file: '/books/LLM_Evaluation_Guidebook_ru.pdf',
-    description: 'Hugging Face: всё об оценке больших языковых моделей — на основе опыта оценки 15 000 моделей за 3 года.',
-    size: '5 MB'
-  },
-  {
-    name: 'Создание навыков для Claude',
-    file: '/books/Skill-for-Claude_RU_t.me_aivkube_30.01.2026.pdf',
-    description: 'Полное руководство по созданию навыков (Skills) для Claude.',
-    size: '2.4 MB'
-  }
-];
 
 export const BOOKSHELF_CATEGORIES: BookshelfCategory[] = [
   {
@@ -811,6 +777,31 @@ export const WORKSHOP_TOOLS: WorkshopTool[] = [
         description: 'Скилл + набор slash-команд для объяснения сложных тем в виде аккуратных HTML-страниц. Внутри — референсные шаблоны и библиотека CSS-паттернов для читабельного вывода.',
         type: 'repo',
         url: 'https://github.com/nicobailon/visual-explainer'
+      },
+      {
+        title: 'Создание навыков для Claude (PDF)',
+        description: 'Полное руководство по созданию навыков (Skills) для Claude. 2.4 MB',
+        type: 'link',
+        url: '/books/Skill-for-Claude_RU_t.me_aivkube_30.01.2026.pdf'
+      }
+    ]
+  },
+  {
+    id: 'openclaw',
+    name: 'OpenClaw',
+    description: 'Открытая платформа для развёртывания собственного API-шлюза к LLM-моделям.',
+    resources: [
+      {
+        title: 'OpenClaw — Безопасное развёртывание (PDF)',
+        description: 'Руководство по защищённому развёртыванию OpenClaw для нетехнических пользователей. Сетевая изоляция, лимиты API и фильтрация трафика. 5.9 MB',
+        type: 'link',
+        url: '/books/OpenClaw_RU.pdf'
+      },
+      {
+        title: 'OpenClaw — Обзор архитектуры (PDF)',
+        description: 'Перевод репозитория centminmod/explain-openclaw. Подробное объяснение архитектуры и компонентов OpenClaw. 496 KB',
+        type: 'link',
+        url: '/books/OpenClaw_Explain_RU.pdf'
       }
     ]
   }

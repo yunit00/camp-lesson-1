@@ -44,7 +44,7 @@ import {
   PlayCircle,
   Clock
 } from 'lucide-react';
-import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES, BOOKSHELF_GUIDES, MICRO_LESSONS, WORKSHOP_TOOLS } from './constants';
+import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES, MICRO_LESSONS, WORKSHOP_TOOLS } from './constants';
 
 // Logo Component - inline SVG for production compatibility
 const Logo = ({ className }: { className?: string }) => (
@@ -1017,36 +1017,6 @@ export default function App() {
               <p className="text-xs text-gray-500 leading-relaxed max-w-md">
                 Блоги, рассылки и каналы для тех, кто хочет углубиться в тему AI. Лучшие ресурсы от ведущих экспертов в области искусственного интеллекта.
               </p>
-            </div>
-
-            {/* Guides Section */}
-            <div className="mb-8">
-              <div className="flex items-center gap-3 border-b-2 border-black pb-3 mb-4">
-                <FileText className="w-4 h-4" />
-                <h3 className="text-lg font-black tracking-tight">Гайды</h3>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {BOOKSHELF_GUIDES.map((guide, i) => (
-                  <a
-                    key={i}
-                    href={guide.file}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-3 bg-white border border-gray-150 rounded-xl p-4 hover:border-black hover:shadow-md transition-all"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h4 className="font-bold text-sm group-hover:underline truncate">{guide.name}</h4>
-                        <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded bg-red-50 text-red-600 flex-shrink-0">PDF</span>
-                        <span className="text-[9px] font-mono text-gray-400 flex-shrink-0">{guide.size}</span>
-                      </div>
-                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{guide.description}</p>
-                    </div>
-                    <Download className="w-4 h-4 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 mt-0.5" />
-                  </a>
-                ))}
-              </div>
             </div>
 
             {/* Bookshelf Content */}
