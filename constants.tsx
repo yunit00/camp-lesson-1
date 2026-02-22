@@ -783,6 +783,12 @@ export const WORKSHOP_TOOLS: WorkshopTool[] = [
         description: 'Полное руководство по созданию навыков (Skills) для Claude. 2.4 MB',
         type: 'link',
         url: '/books/Skill-for-Claude_RU_t.me_aivkube_30.01.2026.pdf'
+      },
+      {
+        title: 'Skills Marketplace',
+        description: 'Каталог готовых скиллов для Claude Code — поиск, установка и использование.',
+        type: 'link',
+        url: 'https://skillsmp.com/search'
       }
     ]
   },
