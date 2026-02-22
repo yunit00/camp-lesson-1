@@ -150,8 +150,7 @@ export default function App() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [glossarySearch, setGlossarySearch] = useState('');
   const [glossaryFocused, setGlossaryFocused] = useState(false);
-  const [workshopActiveTab, setWorkshopActiveTab] = useState(WORKSHOP_TOOLS[0]?.id || '');
-  const [workshopOpenResource, setWorkshopOpenResource] = useState<number | null>(null);
+  const [workshopOpenResource, setWorkshopOpenResource] = useState<string | null>(null);
   const mainContentRef = useRef<HTMLElement>(null);
   
   // Persist checked services
@@ -1169,7 +1168,6 @@ export default function App() {
         );
 
       case 'workshop':
-        const activeTool = WORKSHOP_TOOLS.find(t => t.id === workshopActiveTab) || WORKSHOP_TOOLS[0];
         return (
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
             {/* Header */}
@@ -1197,121 +1195,90 @@ export default function App() {
                     "Полезные материалы для каждого инструмента: промпты, библиотеки, скиллы и лайфхаки."
                   </p>
                   <p className="text-[11px] text-gray-500 leading-relaxed">
-                    Выбирайте инструмент во вкладках и изучайте подобранные ресурсы, которые помогут работать эффективнее.
+                    Гайды, скиллы и ресурсы, которые помогут работать эффективнее.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Tabs */}
-            <div className="flex gap-2 mb-10 overflow-x-auto pb-2">
-              {WORKSHOP_TOOLS.map((tool) => (
-                <button
-                  key={tool.id}
-                  onClick={() => {
-                    setWorkshopActiveTab(tool.id);
-                    setWorkshopOpenResource(null);
-                  }}
-                  className={`
-                    flex items-center gap-3 px-5 py-4 rounded-2xl text-xs font-bold transition-all duration-300 ease-out whitespace-nowrap
-                    ${workshopActiveTab === tool.id
-                      ? 'bg-gradient-to-br from-black via-gray-900 to-black text-white shadow-2xl shadow-black/20 scale-[1.02]'
-                      : 'bg-white border border-gray-100 text-gray-500 hover:border-black hover:text-black hover:shadow-lg hover:scale-[1.01]'}
-                  `}
-                >
-                  <Terminal className="w-4 h-4" />
-                  {tool.name}
-                </button>
+            {/* Tools Grid */}
+            <div className="columns-1 lg:columns-2 gap-6 space-y-6">
+              {WORKSHOP_TOOLS.map((tool, idx) => (
+                <div key={tool.id} className="break-inside-avoid bg-white border-2 border-gray-100 rounded-[2rem] p-8 hover:border-black transition-all hover:shadow-xl">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
+                      <span className="text-white font-black text-sm">{idx + 1}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-black">{tool.name}</h3>
+                      <p className="text-[11px] text-gray-400 leading-relaxed">{tool.description}</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    {tool.resources.map((resource, ri) => {
+                      const resourceKey = `${tool.id}-${ri}`;
+
+                      if (resource.type === 'claude-md') {
+                        const isOpen = workshopOpenResource === resourceKey;
+                        return (
+                          <div key={ri}>
+                            <button
+                              onClick={() => setWorkshopOpenResource(isOpen ? null : resourceKey)}
+                              className={`w-full flex items-center justify-between p-4 rounded-xl group transition-all ${
+                                isOpen ? 'bg-black text-white' : 'bg-gray-50 hover:bg-black hover:text-white'
+                              }`}
+                            >
+                              <div className="flex items-center gap-3 min-w-0">
+                                <FileText className="w-4 h-4 flex-shrink-0 opacity-50" />
+                                <div className="text-left min-w-0">
+                                  <p className="font-medium text-sm truncate">{resource.title}</p>
+                                  <p className={`text-[10px] truncate ${isOpen ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}`}>{resource.description?.slice(0, 60)}...</p>
+                                </div>
+                              </div>
+                              <ChevronRight className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
+                            </button>
+                            <div className={`overflow-hidden transition-all duration-500 ease-out ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                              <div className="mt-2 bg-gray-50 rounded-xl p-5 font-mono text-[11px] leading-relaxed text-gray-700 whitespace-pre-wrap">
+                                {resource.content}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      return (
+                        <a
+                          key={ri}
+                          href={resource.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group hover:bg-black hover:text-white transition-all"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            {resource.type === 'repo'
+                              ? <Terminal className="w-4 h-4 flex-shrink-0 opacity-50" />
+                              : <ExternalLink className="w-4 h-4 flex-shrink-0 opacity-50" />
+                            }
+                            <div className="min-w-0">
+                              <div className="flex items-center gap-2">
+                                <p className="font-medium text-sm truncate">{resource.title}</p>
+                                {resource.type === 'repo' && (
+                                  <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded bg-gray-200 text-gray-500 group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0">GITHUB</span>
+                                )}
+                              </div>
+                              {resource.description && (
+                                <p className="text-[10px] text-gray-400 group-hover:text-gray-300 truncate">{resource.description}</p>
+                              )}
+                            </div>
+                          </div>
+                          <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 flex-shrink-0" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
               ))}
             </div>
-
-            {/* Active tool content */}
-            {activeTool && (
-              <div className="space-y-6">
-                <p className="text-sm text-gray-500 mb-8">{activeTool.description}</p>
-
-                {activeTool.resources.map((resource, ri) => {
-                  if (resource.type === 'claude-md') {
-                    const isOpen = workshopOpenResource === ri;
-                    return (
-                      <div
-                        key={ri}
-                        className={`
-                          bg-white rounded-[2rem] border-2 transition-all duration-500 ease-out
-                          ${isOpen
-                            ? 'border-black ring-1 ring-black shadow-2xl shadow-black/10'
-                            : 'border-gray-100 hover:border-gray-300 hover:shadow-lg'}
-                        `}
-                      >
-                        <button
-                          onClick={() => setWorkshopOpenResource(isOpen ? null : ri)}
-                          className="w-full text-left p-8 flex items-start justify-between gap-4"
-                        >
-                          <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center flex-shrink-0">
-                              <FileText className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <h4 className="font-black text-lg mb-1">{resource.title}</h4>
-                              <p className="text-xs text-gray-500 leading-relaxed">{resource.description}</p>
-                            </div>
-                          </div>
-                          <div className={`
-                            w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-500 ease-out flex-shrink-0 mt-2
-                            ${isOpen
-                              ? 'bg-black text-white border-black rotate-90'
-                              : 'bg-gray-50 border-gray-100 hover:bg-black hover:text-white hover:border-black'}
-                          `}>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                        </button>
-
-                        <div className={`
-                          overflow-hidden transition-all duration-500 ease-out
-                          ${isOpen ? 'max-h-[5000px] opacity-100 pb-8 px-8' : 'max-h-0 opacity-0'}
-                        `}>
-                          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-6" />
-                          <div className="bg-gray-50 rounded-2xl p-6 font-mono text-xs leading-relaxed text-gray-700 whitespace-pre-wrap">
-                            {resource.content}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <a
-                      key={ri}
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-start gap-4 bg-white border-2 border-gray-100 rounded-[2rem] p-8 hover:border-black hover:shadow-xl transition-all duration-300"
-                    >
-                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 ${
-                        resource.type === 'repo'
-                          ? 'bg-gray-900 group-hover:bg-black'
-                          : 'bg-black'
-                      }`}>
-                        {resource.type === 'repo'
-                          ? <Terminal className="w-6 h-6 text-white" />
-                          : <ExternalLink className="w-6 h-6 text-white" />
-                        }
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h4 className="font-black text-lg group-hover:underline">{resource.title}</h4>
-                          {resource.type === 'repo' && (
-                            <span className="text-[9px] font-mono font-black px-2 py-0.5 rounded bg-gray-100 text-gray-500 group-hover:bg-black group-hover:text-white transition-colors">GITHUB</span>
-                          )}
-                        </div>
-                        <p className="text-xs text-gray-500 leading-relaxed">{resource.description}</p>
-                      </div>
-                      <ExternalLink className="w-5 h-5 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 mt-2" />
-                    </a>
-                  );
-                })}
-              </div>
-            )}
           </div>
         );
 

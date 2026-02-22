@@ -804,6 +804,19 @@ export const WORKSHOP_TOOLS: WorkshopTool[] = [
         url: '/books/OpenClaw_Explain_RU.pdf'
       }
     ]
+  },
+  {
+    id: 'perplexity',
+    name: 'Perplexity',
+    description: 'AI-поисковик с доступом к актуальной информации из интернета.',
+    resources: [
+      {
+        title: 'Гайд по Perplexity',
+        description: 'Пошаговое руководство по работе с Perplexity — от базовых запросов до продвинутых техник.',
+        type: 'link',
+        url: 'https://perplexity-guide-510377307212.us-west1.run.app/'
+      }
+    ]
   }
 ];
 
