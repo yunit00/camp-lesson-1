@@ -1288,7 +1288,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen overflow-hidden bg-[#fcfcfc] text-[#1a1a1a] flex flex-col lg:flex-row">
+    <div className="h-screen overflow-hidden bg-transparent text-[#1a1a1a] flex flex-col lg:flex-row">
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
       
       <Sidebar 
