@@ -60,3 +60,18 @@ export interface MicroLesson {
   duration: string;
   tag: string;
 }
+
+export interface WorkshopResource {
+  title: string;
+  description: string;
+  type: 'claude-md' | 'link' | 'repo' | 'tip';
+  url?: string;
+  content?: string;
+}
+
+export interface WorkshopTool {
+  id: string;
+  name: string;
+  description: string;
+  resources: WorkshopResource[];
+}
