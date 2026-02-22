@@ -1002,104 +1002,77 @@ export default function App() {
         return (
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
             {/* Header Section */}
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
-                    <BookOpen className="w-6 h-6 text-white" />
-                  </div>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-white" />
+                </div>
+                <div>
                   <span className="text-[10px] font-mono font-black uppercase tracking-widest text-gray-400">Reading List</span>
-                </div>
-                <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Книжная<br/>полка</h2>
-              </div>
-
-              <div className="bg-white border-2 border-gray-100 p-8 rounded-[2.5rem] max-w-xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
-                  <BookOpen className="w-24 h-24 text-black" />
-                </div>
-                <div className="flex items-center gap-2 text-black mb-4">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-[10px] font-mono font-black uppercase tracking-widest">Дополнительные материалы</span>
-                </div>
-                <div className="space-y-4 relative z-10">
-                  <p className="text-xs text-gray-700 leading-relaxed font-medium italic">
-                    "Блоги, рассылки и каналы для тех, кто хочет углубиться в тему AI."
-                  </p>
-                  <p className="text-[11px] text-gray-500 leading-relaxed">
-                    Мы собрали лучшие ресурсы от ведущих экспертов в области искусственного интеллекта. Подписывайтесь на рассылки, следите за каналами и будьте в курсе последних трендов.
-                  </p>
+                  <h2 className="text-3xl font-black tracking-tighter uppercase leading-none">Книжная полка</h2>
                 </div>
               </div>
+              <p className="text-xs text-gray-500 leading-relaxed max-w-md">
+                Блоги, рассылки и каналы для тех, кто хочет углубиться в тему AI. Лучшие ресурсы от ведущих экспертов в области искусственного интеллекта.
+              </p>
             </div>
 
             {/* Guides Section */}
-            <div className="space-y-6 mb-12">
-              <div className="flex items-center gap-4 border-b-2 border-black pb-4">
-                <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
-                  <FileText className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-black tracking-tight">Гайды</h3>
+            <div className="mb-8">
+              <div className="flex items-center gap-3 border-b-2 border-black pb-3 mb-4">
+                <FileText className="w-4 h-4" />
+                <h3 className="text-lg font-black tracking-tight">Гайды</h3>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {BOOKSHELF_GUIDES.map((guide, i) => (
                   <a
                     key={i}
                     href={guide.file}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-black hover:shadow-xl transition-all"
+                    className="group flex items-start gap-3 bg-white border border-gray-150 rounded-xl p-4 hover:border-black hover:shadow-md transition-all"
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-red-50 text-red-600">PDF</span>
-                          <span className="text-[10px] font-mono text-gray-400">{guide.size}</span>
-                        </div>
-                        <h4 className="font-bold text-lg mb-2 group-hover:underline">{guide.name}</h4>
-                        <p className="text-sm text-gray-500 leading-relaxed">{guide.description}</p>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h4 className="font-bold text-sm group-hover:underline truncate">{guide.name}</h4>
+                        <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded bg-red-50 text-red-600 flex-shrink-0">PDF</span>
+                        <span className="text-[9px] font-mono text-gray-400 flex-shrink-0">{guide.size}</span>
                       </div>
-                      <Download className="w-5 h-5 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 mt-1" />
+                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{guide.description}</p>
                     </div>
+                    <Download className="w-4 h-4 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 mt-0.5" />
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Bookshelf Content */}
-            <div className="space-y-12">
+            <div className="space-y-6">
               {BOOKSHELF_CATEGORIES.map((category, idx) => (
-                <div key={idx} className="space-y-6">
-                  {/* Category Header */}
-                  <div className="flex items-center gap-4 border-b-2 border-black pb-4">
-                    <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
-                      <span className="text-white font-black text-sm">{idx + 1}</span>
+                <div key={idx}>
+                  <div className="flex items-center gap-3 border-b-2 border-black pb-3 mb-3">
+                    <div className="w-6 h-6 bg-black rounded-md flex items-center justify-center">
+                      <span className="text-white font-black text-[10px]">{idx + 1}</span>
                     </div>
-                    <h3 className="text-2xl font-black tracking-tight">{category.category}</h3>
+                    <h3 className="text-lg font-black tracking-tight">{category.category}</h3>
                   </div>
 
-                  {/* Resources Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1">
                     {category.items.map((item, i) => (
                       <a
                         key={i}
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group bg-white border-2 border-gray-100 rounded-2xl p-6 hover:border-black hover:shadow-xl transition-all"
+                        className="group flex items-center gap-3 rounded-lg px-3 py-2.5 hover:bg-gray-50 transition-colors"
                       >
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-2">
-                              <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-gray-100 text-gray-600">
-                                {item.language.toUpperCase()}
-                              </span>
-                            </div>
-                            <h4 className="font-bold text-lg mb-2 group-hover:underline">{item.name}</h4>
-                            <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
-                          </div>
-                          <ExternalLink className="w-5 h-5 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 mt-1" />
-                        </div>
+                        <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded bg-gray-100 text-gray-500 flex-shrink-0">
+                          {item.language.toUpperCase()}
+                        </span>
+                        <span className="font-semibold text-sm group-hover:underline flex-shrink-0">{item.name}</span>
+                        <span className="text-xs text-gray-400 truncate hidden sm:inline">{item.description}</span>
+                        <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-black transition-colors flex-shrink-0 ml-auto" />
                       </a>
                     ))}
                   </div>
