@@ -798,16 +798,40 @@ export const WORKSHOP_TOOLS: WorkshopTool[] = [
     description: 'Открытая платформа для развёртывания собственного API-шлюза к LLM-моделям.',
     resources: [
       {
-        title: 'OpenClaw — Безопасное развёртывание (PDF)',
+        title: '1. Обзор архитектуры OpenClaw (PDF)',
+        description: 'Перевод репозитория centminmod/explain-openclaw. Подробное объяснение архитектуры и компонентов OpenClaw — что это, из чего состоит и как работает. 496 KB',
+        type: 'link',
+        url: '/books/OpenClaw_Explain_RU.pdf'
+      },
+      {
+        title: '2. Безопасное развёртывание OpenClaw (PDF)',
         description: 'Руководство по защищённому развёртыванию OpenClaw для нетехнических пользователей. Сетевая изоляция, лимиты API и фильтрация трафика. 5.9 MB',
         type: 'link',
         url: '/books/OpenClaw_RU.pdf'
       },
       {
-        title: 'OpenClaw — Обзор архитектуры (PDF)',
-        description: 'Перевод репозитория centminmod/explain-openclaw. Подробное объяснение архитектуры и компонентов OpenClaw. 496 KB',
+        title: '3. OpenClaw в Telegram — пошаговая инструкция (PDF)',
+        description: 'Разворачиваем OpenClaw на VPS Contabo (от $5/мес) и подключаем Telegram-бота через Moonshot AI (Kimi) API. От заказа сервера до работающего AI-ассистента в Telegram. 81 KB',
         type: 'link',
-        url: '/books/OpenClaw_Explain_RU.pdf'
+        url: '/books/OpenClaw_Telegram_RU.pdf'
+      },
+      {
+        title: '4. После установки — первые 30 минут (PDF)',
+        description: 'Как превратить OpenClaw из «оно запустилось» в рабочего ИИ-помощника 24/7. Проверка, подключение мессенджера, персонализация, установка навыков и настройка автоматизации. 87 KB',
+        type: 'link',
+        url: '/books/OpenClaw_After_Install_RU.pdf'
+      },
+      {
+        title: '5. Кейсы применения: 3002 навыка (PDF)',
+        description: 'Полный обзор экосистемы навыков OpenClaw по 32 категориям — от разработки и DevOps до здоровья и умного дома. Конкретные примеры использования для бизнеса и жизни. 123 KB',
+        type: 'link',
+        url: '/books/OpenClaw_Skills_UseCases_RU.pdf'
+      },
+      {
+        title: '6. Советы: что нужно знать, чтобы не бросить (PDF)',
+        description: 'Практические советы после двух недель проб и ошибок. Выбор модели, настройка правил агента, организация рабочих процессов и сохранение прогресса. 71 KB',
+        type: 'link',
+        url: '/books/OpenClaw_Tips_RU.pdf'
       }
     ]
   },
