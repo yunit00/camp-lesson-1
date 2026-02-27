@@ -543,7 +543,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Kimi', url: 'https://kimi.moonshot.cn' },
       { name: 'DeepSeek', url: 'https://www.deepseek.com/' },
       { name: 'Grok', url: 'https://grok.com/' },
-      { name: 'Manus Bot', url: 'https://t.me/manus_ai_agent_bot' }
+      { name: 'Manus Bot', url: 'https://t.me/manus_ai_agent_bot' },
+      { name: 'ElevenLabs', url: 'https://elevenlabs.io' }
     ]
   },
   {
@@ -562,7 +563,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Claude Co-Work', url: 'https://claude.com/blog/cowork-research-preview' },
       { name: 'Qoder', url: 'https://qoder.com/' },
       { name: 'Natively', url: 'https://natively.dev/' },
-      { name: 'Variant', url: 'https://variant.com/community' }
+      { name: 'Variant', url: 'https://variant.com/community' },
+      { name: 'OpenCode', url: 'https://opencode.ai' }
     ]
   },
   {
@@ -581,7 +583,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     items: [
       { name: 'MacWhisper', url: 'https://goodsnooze.gumroad.com/l/macwhisper' },
       { name: 'WhisperFlow', url: 'https://wisprflow.ai/' },
-      { name: 'Handy', url: 'https://handy.computer/' }
+      { name: 'Handy', url: 'https://handy.computer/' },
+      { name: 'Fireflies.ai', url: 'https://fireflies.ai' }
     ]
   },
   {
@@ -599,7 +602,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Vercel', url: 'https://vercel.com' },
       { name: 'Netlify', url: 'https://netlify.com' },
       { name: 'GitHub Pages', url: 'https://pages.github.com' },
-      { name: 'Railway (реф.)', url: 'https://railway.com?referralCode=SKavd1' } // реферальная ссылка
+      { name: 'Railway (реф.)', url: 'https://railway.com?referralCode=SKavd1' }, // реферальная ссылка
+      { name: 'Modal', url: 'https://modal.com' }
     ]
   },
   {
@@ -615,7 +619,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'OpenRouter', url: 'https://openrouter.ai' },
       { name: 'OpenAI API', url: 'https://platform.openai.com' },
       { name: 'BotFather (Telegram)', url: 'https://t.me/BotFather' },
-      { name: 'Groq API', url: 'https://console.groq.com/keys' }
+      { name: 'Groq API', url: 'https://console.groq.com/keys' },
+      { name: 'Cohere Reranker', url: 'https://cohere.com' }
     ]
   },
   {
@@ -623,7 +628,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     items: [
       { name: 'Railway (PostgreSQL, реф.)', url: 'https://railway.com?referralCode=SKavd1' }, // реферальная ссылка
       { name: 'Supabase', url: 'https://supabase.com' },
-      { name: 'Neon', url: 'https://neon.tech' }
+      { name: 'Neon', url: 'https://neon.tech' },
+      { name: 'Pinecone', url: 'https://pinecone.io' }
     ]
   },
   {
@@ -643,6 +649,40 @@ export const SERVICES_LINKS: ServiceCategory[] = [
       { name: 'Rows', url: 'https://rows.com' },
       { name: 'Gemini в Google Sheets', url: 'https://workspace.google.com/products/sheets' },
       { name: 'Claude in Excel', url: 'https://claude.com/claude-in-excel' }
+    ]
+  },
+  {
+    category: 'Дизайн и UI-референсы',
+    items: [
+      { name: '21st.dev', url: 'https://21st.dev' },
+      { name: 'CodePen', url: 'https://codepen.io' },
+      { name: 'Dribbble', url: 'https://dribbble.com' },
+      { name: 'Mobbin', url: 'https://mobbin.com' }
+    ]
+  },
+  {
+    category: 'Скрапинг и парсинг данных',
+    items: [
+      { name: 'Firecrawl', url: 'https://firecrawl.dev' },
+      { name: 'Apify', url: 'https://apify.com' },
+      { name: 'RSS.app', url: 'https://rss.app' }
+    ]
+  },
+  {
+    category: 'Автоматизация',
+    items: [
+      { name: 'GoHighLevel', url: 'https://gohighlevel.com' },
+      { name: 'Leapter', url: 'https://leapter.com' }
+    ]
+  },
+  {
+    category: 'MCP и навыки',
+    items: [
+      { name: 'Context7', url: 'https://context7.com' },
+      { name: 'MCP Market', url: 'https://mcpmarket.com' },
+      { name: 'Zapier MCP', url: 'https://mcp.zapier.com' },
+      { name: 'Superpowers (скиллы)', url: 'https://github.com/obra/superpowers' },
+      { name: 'Next Level UI/UX (скилл)', url: 'https://github.com/nextlevelbuiled' }
     ]
   }
 ];
