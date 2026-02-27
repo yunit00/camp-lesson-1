@@ -44,8 +44,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
   { 
     day: '3',
     date: '25 февраля',
-    topic: 'Whisper', 
-    format: 'Запись',
+    topic: 'Whisper',
+    format: 'Урок в записи',
     details: 'Голосовой ввод текста',
     week: 1,
     services: [
@@ -61,8 +61,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
   { 
     day: '4',
     date: '26 февраля',
-    topic: 'Контекст-инжиниринг', 
-    format: 'Запись',
+    topic: 'Контекст-инжиниринг',
+    format: 'Урок в записи',
     details: 'Работа с контекстом для LLM',
     week: 1,
     services: [
@@ -77,7 +77,7 @@ export const DAILY_TRACKER: TrackerDay[] = [
     day: '5',
     date: '27 февраля',
     topic: 'NotebookLM + Личный преподаватель',
-    format: 'Запись',
+    format: 'Урок в записи',
     details: 'Работа с документами и обучение',
     week: 1,
     services: [
@@ -166,8 +166,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
   {
     day: '16',
     date: '10 марта',
-    topic: 'Второй мозг + саммари', 
-    format: 'Запись',
+    topic: 'Второй мозг + саммари',
+    format: 'Урок в записи',
     details: 'Second Brain система',
     week: 3,
     services: [
@@ -185,8 +185,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
   {
     day: '17',
     date: '11 марта',
-    topic: 'Презентации', 
-    format: 'Запись',
+    topic: 'Презентации',
+    format: 'Урок в записи',
     details: 'Создание презентаций с AI',
     week: 3,
     services: [
@@ -201,8 +201,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
   {
     day: '18',
     date: '12 марта',
-    topic: 'AI в работе с таблицами', 
-    format: 'Запись',
+    topic: 'AI в работе с таблицами',
+    format: 'Урок в записи',
     details: 'AI-ассистенты по работе с таблицами',
     week: 3,
     services: [
