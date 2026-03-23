@@ -117,7 +117,7 @@ const Sidebar = ({ activeSection, onSelect, isOpen, onClose }: { activeSection: 
 
           <div className="mt-4 lg:mt-8 pt-4 lg:pt-6 border-t border-gray-200">
             <div className="flex items-center justify-between lg:flex-col lg:items-start lg:gap-4">
-              <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 24 Фев 2026</p>
+              <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Старт: 6 Апр 2026</p>
               <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-2">
                 <a href="https://tochkicamp.ru/" target="_blank" rel="noopener noreferrer" className="text-[11px] font-mono text-gray-400 hover:text-black transition-colors flex items-center gap-1.5 lg:gap-2" title="Сайт кэмпа">
                   <Globe className="w-3.5 h-3.5 lg:w-3 lg:h-3" /> <span className="hidden lg:inline">Сайт кэмпа</span>
@@ -251,13 +251,13 @@ export default function App() {
 
               <div className="flex items-center gap-4">
                 <div className="h-px w-8 bg-black/10" />
-                <span className="text-[10px] font-mono text-gray-300 tracking-[0.4em] uppercase">21_days_reload</span>
+                <span className="text-[10px] font-mono text-gray-300 tracking-[0.4em] uppercase">28_days_reload</span>
                 <div className="h-px flex-1 bg-black/10" />
               </div>
 
               <section className="space-y-4">
                 <p className="text-xl lg:text-2xl font-medium leading-snug tracking-tight text-gray-900">
-                  В ближайший 21 день мы докажем, что ИИ – это мощный соавтор и компаньон. 
+                  В ближайший 28 дней мы докажем, что ИИ – это мощный соавтор и компаньон. 
                 </p>
                 <p className="text-gray-600 text-base lg:text-lg leading-relaxed border-l-2 border-black pl-6 py-1">
                   Мы здесь для практики: через голос, руки и AI-мышление вы научитесь собирать работающие продукты буквально за вечер и проектировать собственную систему личной эффективности.
@@ -304,7 +304,7 @@ export default function App() {
             <p className="text-gray-500 mb-12 text-sm">Отмечайте сервисы и темы по мере прохождения модуля.</p>
             
             <div className="space-y-16">
-              {[1, 2, 3].map(week => (
+              {[1, 2, 3, 4].map(week => (
                 <div key={week} className="space-y-8">
                   <div className="flex items-center gap-3">
                     <span className="text-[10px] font-mono font-black bg-black text-white px-3 py-1 rounded">НЕДЕЛЯ 0{week}</span>
@@ -360,28 +360,6 @@ export default function App() {
                 </div>
               ))}
 
-              <div className="space-y-8">
-                <div className="flex items-center gap-3">
-                  <div className="h-px flex-1 bg-gray-200" />
-                  <Sparkles className="w-5 h-5 text-black" />
-                  <div className="h-px flex-1 bg-gray-200" />
-                </div>
-
-                <div className="relative pl-8 border-l-2 border-dashed border-gray-200 group hover:border-black transition-colors">
-                  <div className="absolute -left-[11px] top-0 w-5 h-5 bg-black rounded-full flex items-center justify-center">
-                    <Sparkles className="w-3 h-3 text-white" />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <h3 className="text-xl font-bold flex items-center gap-2">
-                        Бонусный эфир: Разбор вопросов по проектам
-                      </h3>
-                      <span className="text-[10px] font-mono text-gray-400 border px-2 py-0.5 rounded">По запросу</span>
-                    </div>
-                    <p className="text-sm text-gray-500">Дополнительный эфир по запросу участников. Разбираем текущие вопросы и сложности в работе над проектами. День и время выбираются совместно в чате кэмпа.</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         );

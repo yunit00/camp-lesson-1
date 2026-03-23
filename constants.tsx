@@ -25,10 +25,11 @@ export interface TrackerDay extends CourseDay {
 }
 
 export const DAILY_TRACKER: TrackerDay[] = [
-  { 
+  // ─── НЕДЕЛЯ 1 ───
+  {
     day: '2',
-    date: '24 февраля',
-    topic: 'Вводная лекция + AI-браузеры', 
+    date: '7 апреля',
+    topic: 'Вводный эфир',
     format: 'Эфир 19:00 (MSK)',
     details: 'Обзор AI-трендов 2026, программа кэмпа',
     week: 1,
@@ -41,9 +42,9 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'manus_bot', name: 'Manus Bot' },
     ]
   },
-  { 
+  {
     day: '3',
-    date: '25 февраля',
+    date: '8 апреля',
     topic: 'Whisper',
     format: 'Урок в записи',
     details: 'Голосовой ввод текста',
@@ -58,9 +59,9 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'handy', name: 'Handy' }
     ]
   },
-  { 
+  {
     day: '4',
-    date: '26 февраля',
+    date: '9 апреля',
     topic: 'Контекст-инжиниринг',
     format: 'Урок в записи',
     details: 'Работа с контекстом для LLM',
@@ -75,8 +76,8 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '5',
-    date: '27 февраля',
-    topic: 'NotebookLM + Личный преподаватель',
+    date: '10 апреля',
+    topic: 'NotebookLM',
     format: 'Урок в записи',
     details: 'Работа с документами и обучение',
     week: 1,
@@ -91,10 +92,11 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'yt_import', name: 'YouTube (импорт)' }
     ]
   },
+  // ─── НЕДЕЛЯ 2 ───
   {
     day: '9',
-    date: '3 марта',
-    topic: 'Вайбкодинг', 
+    date: '14 апреля',
+    topic: 'Вайбкодинг: вводный эфир',
     format: 'Эфир 19:00 (MSK)',
     details: 'Базовый Vibe Coding',
     week: 2,
@@ -116,24 +118,9 @@ export const DAILY_TRACKER: TrackerDay[] = [
   },
   {
     day: '10',
-    date: '4 марта',
-    topic: 'Суперклей проектов', 
-    format: 'Документ',
-    details: 'Инфраструктура проектов',
-    week: 2,
-    services: [
-      { id: 'github', name: 'GitHub' },
-      { id: 'railway', name: 'Railway' },
-      { id: 'netlify', name: 'Netlify' },
-      { id: 'openrouter', name: 'OpenRouter (API)' },
-      { id: 'cursor_git', name: 'Cursor + GitHub Sync' }
-    ]
-  },
-  {
-    day: '11',
-    date: '5 марта',
-    topic: 'Создание лендингов и сайтов', 
-    format: 'Эфир 19:00 (MSK)',
+    date: '15 апреля',
+    topic: 'Создание сайта',
+    format: 'Урок в записи',
     details: 'Создание сайтов с AI',
     week: 2,
     services: [
@@ -147,12 +134,76 @@ export const DAILY_TRACKER: TrackerDay[] = [
     ]
   },
   {
-    day: '12',
-    date: '6 марта',
-    topic: 'Создание Telegram-бота',
-    format: 'Документ',
-    details: 'Создание ботов',
+    day: '11',
+    date: '16 апреля',
+    topic: 'Работа с презентациями',
+    format: 'Урок в записи',
+    details: 'Создание презентаций с AI',
     week: 2,
+    services: [
+      { id: 'nanobanano_pres', name: 'Nano Banana Pro' },
+      { id: 'genspark', name: 'Genspark' },
+      { id: 'ai_studio_build', name: 'Google AI Studio (Build)' },
+      { id: 'gemini_canvas_day11', name: 'Gemini Canvas' },
+      { id: 'gamma', name: 'Gamma' },
+      { id: 'kimi', name: 'Kimi' }
+    ]
+  },
+  {
+    day: '12',
+    date: '17 апреля',
+    topic: 'Работа с таблицами',
+    format: 'Урок в записи',
+    details: 'AI-ассистенты по работе с таблицами',
+    week: 2,
+    services: [
+      { id: 'gemini_agent_day12', name: 'Gemini Agent' },
+      { id: 'browser_agents_table', name: 'Браузерные агенты' },
+      { id: 'rows', name: 'Rows' }
+    ]
+  },
+  // ─── НЕДЕЛЯ 3 ───
+  {
+    day: '16',
+    date: '21 апреля',
+    topic: 'Вайбкодинг. Углублённый уровень, работа с Claude Code',
+    format: 'Эфир 19:00 (MSK)',
+    details: 'Продвинутый Vibe Coding с Claude Code',
+    week: 3,
+    services: [
+      { id: 'cursor_adv', name: 'Cursor' },
+      { id: 'claude_code_adv', name: 'Claude Code' },
+      { id: 'antigravity_adv', name: 'Antigravity' },
+      { id: 'conductor_adv', name: 'Conductor' },
+      { id: 'terminal_adv', name: 'Terminal' },
+      { id: 'ai_studio_adv', name: 'Google AI Studio' },
+      { id: 'v0_adv', name: 'v0 (by Vercel)' },
+      { id: 'codex_adv', name: 'Codex' },
+      { id: 'qoder_adv', name: 'Qoder' }
+    ]
+  },
+  {
+    day: '17',
+    date: '22 апреля',
+    topic: 'GitHub, Railway, Netlify',
+    format: 'Урок в записи',
+    details: 'Инфраструктура проектов',
+    week: 3,
+    services: [
+      { id: 'github', name: 'GitHub' },
+      { id: 'railway', name: 'Railway' },
+      { id: 'netlify', name: 'Netlify' },
+      { id: 'openrouter', name: 'OpenRouter (API)' },
+      { id: 'cursor_git', name: 'Cursor + GitHub Sync' }
+    ]
+  },
+  {
+    day: '18',
+    date: '23 апреля',
+    topic: 'Создание тг-бота',
+    format: 'Урок в записи',
+    details: 'Создание Telegram-бота',
+    week: 3,
     services: [
       { id: 'botfather', name: 'BotFather' },
       { id: 'postgresql', name: 'PostgreSQL' },
@@ -163,13 +214,14 @@ export const DAILY_TRACKER: TrackerDay[] = [
       { id: 'railway_bot', name: 'Railway (хостинг бота)' }
     ]
   },
+  // ─── НЕДЕЛЯ 4 ───
   {
-    day: '16',
-    date: '10 марта',
-    topic: 'Второй мозг + саммари',
-    format: 'Урок в записи',
+    day: '23',
+    date: '28 апреля',
+    topic: 'Second Brain',
+    format: 'Эфир 19:00 (MSK)',
     details: 'Second Brain система',
-    week: 3,
+    week: 4,
     services: [
       { id: 'notion', name: 'Notion' },
       { id: 'github_sb', name: 'GitHub' },
@@ -183,41 +235,23 @@ export const DAILY_TRACKER: TrackerDay[] = [
     ]
   },
   {
-    day: '17',
-    date: '11 марта',
-    topic: 'Презентации',
-    format: 'Урок в записи',
-    details: 'Создание презентаций с AI',
-    week: 3,
-    services: [
-      { id: 'nanobanano_pres', name: 'Nano Banana Pro' },
-      { id: 'genspark', name: 'Genspark' },
-      { id: 'ai_studio_build', name: 'Google AI Studio (Build)' },
-      { id: 'gemini_canvas_day11', name: 'Gemini Canvas' },
-      { id: 'gamma', name: 'Gamma' },
-      { id: 'kimi', name: 'Kimi' }
-    ]
-  },
-  {
-    day: '18',
-    date: '12 марта',
-    topic: 'AI в работе с таблицами',
-    format: 'Урок в записи',
-    details: 'AI-ассистенты по работе с таблицами',
-    week: 3,
-    services: [
-      { id: 'gemini_agent_day12', name: 'Gemini Agent' },
-      { id: 'browser_agents_table', name: 'Браузерные агенты' },
-      { id: 'rows', name: 'Rows' }
-    ]
-  },
-  {
-    day: '21',
-    date: '15 марта',
-    topic: 'Демо-день', 
+    day: '25',
+    date: '30 апреля',
+    topic: 'Q&A — доработка проектов',
     format: 'Эфир 19:00 (MSK)',
-    details: 'Презентация проектов',
-    week: 3,
+    details: 'Разбор вопросов и доработка проектов участников',
+    week: 4,
+    services: [
+      { id: 'qa_projects', name: 'Демонстрация и доработка проектов Кэмпа' }
+    ]
+  },
+  {
+    day: '28',
+    date: '3 мая',
+    topic: 'Итоговый эфир',
+    format: 'Эфир 19:00 (MSK)',
+    details: 'Финальная презентация проектов',
+    week: 4,
     services: [
       { id: 'final_demo_updated', name: 'Демонстрация и доработка проектов Кэмпа' }
     ]
