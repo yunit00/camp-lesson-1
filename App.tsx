@@ -467,44 +467,32 @@ export default function App() {
               </div>
             </div>
 
-            <div className="space-y-24">
+            <div className="space-y-14">
               {categories.map(category => (
-                <div key={category} className="space-y-10">
-                  <div className="flex items-center gap-6">
-                    <div className="w-14 h-14 bg-black rounded-[1.25rem] flex items-center justify-center text-white shadow-xl shadow-black/10">
+                <div key={category} className="space-y-5">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white">
                       {getCategoryIcon(category)}
                     </div>
-                    <div>
-                      <h3 className="text-3xl font-black tracking-tighter uppercase">{category}</h3>
-                      <div className="h-1 w-12 bg-black mt-1" />
-                    </div>
+                    <h3 className="text-lg font-black tracking-tight uppercase">{category}</h3>
+                    <span className="text-[10px] font-mono text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">{PROJECTS.filter(p => p.category === category).length}</span>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                     {PROJECTS.filter(p => p.category === category).map((proj, i) => (
-                      <div key={i} className="group relative bg-white border border-gray-100 p-10 rounded-[2.5rem] flex flex-col hover:border-black hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 ease-out">
-                        <div className="flex-grow">
-                          <h4 className="text-xl font-black mb-4 leading-tight group-hover:translate-x-1 transition-transform">{proj.title}</h4>
-                          <p className="text-sm text-gray-500 leading-relaxed mb-8 italic">
-                            "{proj.why}"
-                          </p>
+                      <div key={i} className="group relative bg-white border border-gray-100 px-4 py-3.5 rounded-2xl flex flex-col hover:border-black hover:shadow-lg hover:shadow-black/5 transition-all duration-300 ease-out">
+                        <h4 className="text-[13px] font-extrabold mb-1 leading-snug group-hover:translate-x-0.5 transition-transform">{proj.title}</h4>
+                        <p className="text-[11px] text-gray-400 leading-relaxed mb-2.5 line-clamp-2">
+                          {proj.why}
+                        </p>
+
+                        <div className="mt-auto flex flex-wrap gap-1">
+                          {proj.features.map((f, j) => (
+                            <span key={j} className="text-[9px] font-bold text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded group-hover:bg-black group-hover:text-white transition-colors">
+                              {f}
+                            </span>
+                          ))}
                         </div>
-                        
-                        <div className="pt-8 border-t border-gray-50">
-                          <div className="flex items-center gap-2 mb-4">
-                            <Zap className="w-3 h-3 text-black" />
-                            <p className="text-[10px] font-mono font-black text-gray-400 uppercase tracking-widest">Core Features</p>
-                          </div>
-                          <ul className="grid grid-cols-1 gap-3">
-                            {proj.features.map((f, j) => (
-                              <li key={j} className="flex items-start gap-3 text-[11px] font-bold text-gray-600 group-hover:text-black transition-colors">
-                                <span className="mt-1 w-1.5 h-1.5 bg-black/10 rounded-full group-hover:bg-black transition-colors shrink-0" />
-                                {f}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        
                       </div>
                     ))}
                   </div>
@@ -517,38 +505,38 @@ export default function App() {
       case 'outcomes':
         return (
           <div className="animate-in slide-in-from-bottom-8 fade-in duration-700">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b-4 border-black pb-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
               <div>
-                <Award className="w-12 h-12 text-black mb-4" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+                    <Award className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-[10px] font-mono font-black uppercase tracking-widest text-gray-400">Learning Outcomes</span>
+                </div>
                 <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Чему вы <br/>научитесь</h2>
               </div>
-              <div className="max-w-xs">
-                <p className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-2">Общий итог:</p>
-                <p className="text-sm font-medium leading-relaxed">Полная трансформация подхода к работе через AI-инструменты и инфраструктуру.</p>
+              <div className="bg-gray-50 border border-gray-100 px-4 py-2.5 rounded-2xl max-w-sm">
+                <p className="text-[11px] text-gray-500 leading-relaxed">Полная трансформация подхода к работе через AI-инструменты и инфраструктуру.</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {COURSE_OUTCOMES.map((category, idx) => (
-                <div key={idx} className="group flex flex-col">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center text-white font-black group-hover:rotate-12 transition-transform">
+                <div key={idx} className="group bg-white border border-gray-100 rounded-2xl p-5 hover:border-black hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-50">
+                    <div className="w-7 h-7 bg-black rounded-lg flex items-center justify-center text-white text-xs font-black group-hover:rotate-12 transition-transform">
                       {idx + 1}
                     </div>
-                    <h3 className="text-2xl font-black tracking-tight">{category.title}</h3>
+                    <h3 className="text-sm font-black tracking-tight leading-tight">{category.title}</h3>
                   </div>
-                  
-                  <div className="grid grid-cols-1 gap-4 flex-1">
+
+                  <div className="space-y-2.5">
                     {category.items.map((item, i) => (
-                      <div key={i} className="bg-white border-2 border-gray-100 p-6 rounded-[2rem] hover:border-black hover:shadow-xl transition-all duration-300">
-                        <div className="flex gap-4">
-                          <div className="mt-1">
-                            <Sparkles className="w-4 h-4 text-black opacity-30 group-hover:opacity-100 transition-opacity" />
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-base mb-2 group-hover:underline">{item.title}</h4>
-                            <p className="text-xs text-gray-500 leading-relaxed">{item.description}</p>
-                          </div>
+                      <div key={i} className="flex gap-2.5 items-start">
+                        <Sparkles className="w-3 h-3 text-black/20 mt-0.5 shrink-0 group-hover:text-black transition-colors" />
+                        <div>
+                          <h4 className="font-bold text-[12px] leading-tight mb-0.5">{item.title}</h4>
+                          <p className="text-[10px] text-gray-400 leading-snug">{item.description}</p>
                         </div>
                       </div>
                     ))}
