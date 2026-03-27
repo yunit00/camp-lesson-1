@@ -1,5 +1,5 @@
 
-import { Section, CourseDay, ProjectExample, FAQItem, OutcomeCategory, MicroLesson, WorkshopTool } from './types';
+import { Section, CourseDay, ProjectExample, FAQItem, OutcomeCategory, MicroLesson, WorkshopTool, WorkshopSkill } from './types';
 
 export const SECTIONS: Section[] = [
   { id: 'intro', title: '00 // ВВЕДЕНИЕ' },
@@ -699,7 +699,8 @@ export const SERVICES_LINKS: ServiceCategory[] = [
     items: [
       { name: 'Firecrawl', url: 'https://firecrawl.dev' },
       { name: 'Apify', url: 'https://apify.com' },
-      { name: 'RSS.app', url: 'https://rss.app' }
+      { name: 'RSS.app', url: 'https://rss.app' },
+      { name: 'Thunderbit', url: 'https://thunderbit.com' }
     ]
   },
   {
@@ -841,18 +842,6 @@ export const WORKSHOP_TOOLS: WorkshopTool[] = [
         url: 'https://platform.claude.com/docs/en/resources/prompt-library/library'
       },
       {
-        title: 'Скилл: Презентации (RevealJS)',
-        description: 'Скилл для создания презентаций в Claude Code через RevealJS. Генерация слайдов по текстовому запросу.',
-        type: 'repo',
-        url: 'https://github.com/ryanbbrown/revealjs-skill'
-      },
-      {
-        title: 'Скилл: Visual Explainer',
-        description: 'Скилл + набор slash-команд для объяснения сложных тем в виде аккуратных HTML-страниц. Внутри — референсные шаблоны и библиотека CSS-паттернов для читабельного вывода.',
-        type: 'repo',
-        url: 'https://github.com/nicobailon/visual-explainer'
-      },
-      {
         title: 'Создание навыков для Claude (PDF)',
         description: 'Полное руководство по созданию навыков (Skills) для Claude. 2.4 MB',
         type: 'link',
@@ -921,6 +910,51 @@ export const WORKSHOP_TOOLS: WorkshopTool[] = [
         url: 'https://perplexity-guide-510377307212.us-west1.run.app/'
       }
     ]
+  }
+];
+
+export const WORKSHOP_SKILLS: WorkshopSkill[] = [
+  {
+    id: 'revealjs-slides',
+    title: 'Презентации (RevealJS)',
+    description: 'Генерация слайдов по текстовому запросу через RevealJS.',
+    type: 'ready',
+    url: 'https://github.com/ryanbbrown/revealjs-skill'
+  },
+  {
+    id: 'visual-explainer',
+    title: 'Visual Explainer',
+    description: 'Объяснение сложных тем в виде аккуратных HTML-страниц с CSS-паттернами.',
+    type: 'ready',
+    url: 'https://github.com/nicobailon/visual-explainer'
+  },
+  {
+    id: 'ai-website-cloner',
+    title: 'AI Website Cloner',
+    description: 'Реверс-инжиниринг и пиксель-перфектное воссоздание сайтов через Claude Code.',
+    type: 'ready',
+    url: 'https://github.com/JCodesMore/ai-website-cloner-template'
+  },
+  {
+    id: 'task-proof-loop',
+    title: 'Task Proof Loop',
+    description: 'Структурированное выполнение задач: спецификация → сборка → доказательство → верификация.',
+    type: 'ready',
+    url: 'https://github.com/DenisSergeevitch/repo-task-proof-loop'
+  },
+  {
+    id: 'writing-guru',
+    title: 'Writing Guru',
+    description: 'Выбор нарративной стратегии перед написанием текста — 25 типов, 204 комбинации.',
+    type: 'ready',
+    url: 'https://github.com/alenazaharovaux/share/tree/main/skills/writing-guru'
+  },
+  {
+    id: 'superpowers',
+    title: 'Superpowers',
+    description: 'Фреймворк агентных навыков: брейншторм, планирование, TDD, код-ревью.',
+    type: 'ready',
+    url: 'https://github.com/obra/superpowers'
   }
 ];
 

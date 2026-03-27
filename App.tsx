@@ -44,7 +44,7 @@ import {
   PlayCircle,
   Clock
 } from 'lucide-react';
-import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES, MICRO_LESSONS, WORKSHOP_TOOLS } from './constants';
+import { SECTIONS, DAILY_TRACKER, PROJECTS, FAQ, GLOSSARY_CATEGORIES, COURSE_OUTCOMES, SERVICES_LINKS, BOOKSHELF_CATEGORIES, MICRO_LESSONS, WORKSHOP_TOOLS, WORKSHOP_SKILLS } from './constants';
 
 // Logo Component - inline SVG for production compatibility
 const Logo = ({ className }: { className?: string }) => (
@@ -151,6 +151,9 @@ export default function App() {
   const [glossarySearch, setGlossarySearch] = useState('');
   const [glossaryFocused, setGlossaryFocused] = useState(false);
   const [workshopOpenResource, setWorkshopOpenResource] = useState<string | null>(null);
+  const [workshopTab, setWorkshopTab] = useState<'services' | 'skills'>('services');
+  const [workshopOpenTool, setWorkshopOpenTool] = useState<string | null>(null);
+  const [workshopOpenSkill, setWorkshopOpenSkill] = useState<string | null>(null);
   const mainContentRef = useRef<HTMLElement>(null);
   
   // Persist checked services
@@ -722,6 +725,7 @@ export default function App() {
                     { name: 'GGSel', desc: 'Каталог продавцов с услугами активации', url: 'https://ggsel.net' },
                     { name: 'FunPay', desc: 'Биржа аккаунтов (проверенный: id 16249031)', url: 'https://funpay.com' },
                     { name: 'Oplatym', desc: 'Специализируется на оплате подписок', url: 'https://oplatym.ru' },
+                    { name: 'ProstoPay', desc: 'Оплата зарубежных подписок и сервисов из России', url: 'https://prostopay-online.ru' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div>
@@ -1137,7 +1141,7 @@ export default function App() {
         return (
           <div className="animate-in slide-in-from-right-4 fade-in duration-500">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
@@ -1147,104 +1151,195 @@ export default function App() {
                 </div>
                 <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">Мастерская</h2>
               </div>
-
-              <div className="bg-white border-2 border-gray-100 p-8 rounded-[2.5rem] max-w-xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
-                  <Settings className="w-24 h-24 text-black" />
-                </div>
-                <div className="flex items-center gap-2 text-black mb-4">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-[10px] font-mono font-black uppercase tracking-widest">Прокачка инструментов</span>
-                </div>
-                <div className="space-y-4 relative z-10">
-                  <p className="text-xs text-gray-700 leading-relaxed font-medium italic">
-                    "Полезные материалы для каждого инструмента: промпты, библиотеки, скиллы и лайфхаки."
-                  </p>
-                  <p className="text-[11px] text-gray-500 leading-relaxed">
-                    Гайды, скиллы и ресурсы, которые помогут работать эффективнее.
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* Tools Grid */}
-            <div className="columns-1 lg:columns-2 gap-6 space-y-6">
-              {WORKSHOP_TOOLS.map((tool, idx) => (
-                <div key={tool.id} className="break-inside-avoid bg-white border-2 border-gray-100 rounded-[2rem] p-8 hover:border-black transition-all hover:shadow-xl">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
-                      <span className="text-white font-black text-sm">{idx + 1}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-base font-black">{tool.name}</h3>
-                      <p className="text-[11px] text-gray-400 leading-relaxed">{tool.description}</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    {tool.resources.map((resource, ri) => {
-                      const resourceKey = `${tool.id}-${ri}`;
+            {/* Tabs */}
+            <div className="flex gap-2 mb-8">
+              <button
+                onClick={() => setWorkshopTab('services')}
+                className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                  workshopTab === 'services'
+                    ? 'bg-black text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-black'
+                }`}
+              >
+                Сервисы
+                <span className={`ml-2 text-[10px] font-mono px-1.5 py-0.5 rounded-full ${workshopTab === 'services' ? 'bg-white/20' : 'bg-gray-200'}`}>{WORKSHOP_TOOLS.length}</span>
+              </button>
+              <button
+                onClick={() => setWorkshopTab('skills')}
+                className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                  workshopTab === 'skills'
+                    ? 'bg-black text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-black'
+                }`}
+              >
+                Скиллы
+                <span className={`ml-2 text-[10px] font-mono px-1.5 py-0.5 rounded-full ${workshopTab === 'skills' ? 'bg-white/20' : 'bg-gray-200'}`}>{WORKSHOP_SKILLS.length}</span>
+              </button>
+            </div>
 
-                      if (resource.type === 'claude-md') {
-                        const isOpen = workshopOpenResource === resourceKey;
-                        return (
-                          <div key={ri}>
-                            <button
-                              onClick={() => setWorkshopOpenResource(isOpen ? null : resourceKey)}
-                              className={`w-full flex items-center justify-between p-4 rounded-xl group transition-all ${
-                                isOpen ? 'bg-black text-white' : 'bg-gray-50 hover:bg-black hover:text-white'
-                              }`}
-                            >
-                              <div className="flex items-center gap-3 min-w-0">
-                                <FileText className="w-4 h-4 flex-shrink-0 opacity-50" />
-                                <div className="text-left min-w-0">
-                                  <p className="font-medium text-sm truncate">{resource.title}</p>
-                                  <p className={`text-[10px] truncate ${isOpen ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}`}>{resource.description?.slice(0, 60)}...</p>
-                                </div>
-                              </div>
-                              <ChevronRight className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
-                            </button>
-                            <div className={`overflow-hidden transition-all duration-500 ease-out ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                              <div className="mt-2 bg-gray-50 rounded-xl p-5 font-mono text-[11px] leading-relaxed text-gray-700 whitespace-pre-wrap">
-                                {resource.content}
-                              </div>
-                            </div>
+            {workshopTab === 'services' ? (
+              <div className="space-y-3">
+                {WORKSHOP_TOOLS.map((tool) => {
+                  const isToolOpen = workshopOpenTool === tool.id;
+                  return (
+                    <div key={tool.id} className={`bg-white border rounded-2xl transition-all duration-300 ${isToolOpen ? 'border-black shadow-xl' : 'border-gray-100 hover:border-gray-300'}`}>
+                      <button
+                        onClick={() => setWorkshopOpenTool(isToolOpen ? null : tool.id)}
+                        className="w-full flex items-center justify-between p-5 text-left"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors ${isToolOpen ? 'bg-black' : 'bg-gray-100'}`}>
+                            <Terminal className={`w-4 h-4 ${isToolOpen ? 'text-white' : 'text-gray-500'}`} />
                           </div>
-                        );
-                      }
+                          <div className="min-w-0">
+                            <h3 className="text-sm font-black">{tool.name}</h3>
+                            <p className="text-[11px] text-gray-400 truncate">{tool.description}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <span className="text-[10px] font-mono text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">{tool.resources.length}</span>
+                          <ChevronRight className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${isToolOpen ? 'rotate-90' : ''}`} />
+                        </div>
+                      </button>
 
-                      return (
-                        <a
-                          key={ri}
-                          href={resource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group hover:bg-black hover:text-white transition-all"
+                      <div className={`overflow-hidden transition-all duration-500 ease-out ${isToolOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className="px-5 pb-5 space-y-2">
+                          {tool.resources.map((resource, ri) => {
+                            const resourceKey = `${tool.id}-${ri}`;
+
+                            if (resource.type === 'claude-md') {
+                              const isResOpen = workshopOpenResource === resourceKey;
+                              return (
+                                <div key={ri}>
+                                  <button
+                                    onClick={() => setWorkshopOpenResource(isResOpen ? null : resourceKey)}
+                                    className={`w-full flex items-center justify-between p-3.5 rounded-xl group transition-all ${
+                                      isResOpen ? 'bg-black text-white' : 'bg-gray-50 hover:bg-black hover:text-white'
+                                    }`}
+                                  >
+                                    <div className="flex items-center gap-3 min-w-0">
+                                      <FileText className="w-4 h-4 flex-shrink-0 opacity-50" />
+                                      <div className="text-left min-w-0">
+                                        <p className="font-medium text-xs truncate">{resource.title}</p>
+                                        <p className={`text-[10px] truncate ${isResOpen ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}`}>{resource.description?.slice(0, 60)}...</p>
+                                      </div>
+                                    </div>
+                                    <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-300 ${isResOpen ? 'rotate-90' : ''}`} />
+                                  </button>
+                                  <div className={`overflow-hidden transition-all duration-500 ease-out ${isResOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <div className="mt-2 bg-gray-50 rounded-xl p-4 font-mono text-[11px] leading-relaxed text-gray-700 whitespace-pre-wrap">
+                                      {resource.content}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+
+                            return (
+                              <a
+                                key={ri}
+                                href={resource.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-between p-3.5 bg-gray-50 rounded-xl group hover:bg-black hover:text-white transition-all"
+                              >
+                                <div className="flex items-center gap-3 min-w-0">
+                                  {resource.type === 'repo'
+                                    ? <Terminal className="w-4 h-4 flex-shrink-0 opacity-50" />
+                                    : <ExternalLink className="w-4 h-4 flex-shrink-0 opacity-50" />
+                                  }
+                                  <div className="min-w-0">
+                                    <div className="flex items-center gap-2">
+                                      <p className="font-medium text-xs truncate">{resource.title}</p>
+                                      {resource.type === 'repo' && (
+                                        <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded bg-gray-200 text-gray-500 group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0">GITHUB</span>
+                                      )}
+                                    </div>
+                                    {resource.description && (
+                                      <p className="text-[10px] text-gray-400 group-hover:text-gray-300 truncate">{resource.description}</p>
+                                    )}
+                                  </div>
+                                </div>
+                                <ExternalLink className="w-3.5 h-3.5 opacity-30 group-hover:opacity-100 flex-shrink-0" />
+                              </a>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div>
+                <div className="bg-gray-50 border border-gray-100 rounded-2xl px-5 py-3.5 mb-6">
+                  <p className="text-[11px] text-gray-500 leading-relaxed">
+                    <span className="font-bold text-black">Скиллы</span> — навыки для Claude Code / Codex, расширяющие возможности AI-ассистента. Некоторые уже готовы к установке от проверенных разработчиков, для других — есть промпт-описание, чтобы создать самому.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {WORKSHOP_SKILLS.map((skill) => {
+                    const isSkillOpen = workshopOpenSkill === skill.id;
+                    return (
+                      <div key={skill.id} className={`bg-white border rounded-2xl transition-all duration-300 ${isSkillOpen ? 'border-black shadow-lg' : 'border-gray-100 hover:border-gray-300'}`}>
+                        <button
+                          onClick={() => setWorkshopOpenSkill(isSkillOpen ? null : skill.id)}
+                          className="w-full flex items-center justify-between p-4 text-left"
                         >
                           <div className="flex items-center gap-3 min-w-0">
-                            {resource.type === 'repo'
-                              ? <Terminal className="w-4 h-4 flex-shrink-0 opacity-50" />
-                              : <ExternalLink className="w-4 h-4 flex-shrink-0 opacity-50" />
-                            }
+                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${skill.type === 'ready' ? 'bg-black' : 'bg-gray-100'}`}>
+                              {skill.type === 'ready'
+                                ? <Zap className="w-3.5 h-3.5 text-white" />
+                                : <Sparkles className="w-3.5 h-3.5 text-gray-500" />
+                              }
+                            </div>
                             <div className="min-w-0">
                               <div className="flex items-center gap-2">
-                                <p className="font-medium text-sm truncate">{resource.title}</p>
-                                {resource.type === 'repo' && (
-                                  <span className="text-[9px] font-mono font-black px-1.5 py-0.5 rounded bg-gray-200 text-gray-500 group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0">GITHUB</span>
-                                )}
+                                <h4 className="text-xs font-black truncate">{skill.title}</h4>
+                                <span className={`text-[8px] font-mono font-black px-1.5 py-0.5 rounded-full flex-shrink-0 ${
+                                  skill.type === 'ready' ? 'bg-black text-white' : 'bg-gray-100 text-gray-500'
+                                }`}>
+                                  {skill.type === 'ready' ? 'READY' : 'DIY'}
+                                </span>
                               </div>
-                              {resource.description && (
-                                <p className="text-[10px] text-gray-400 group-hover:text-gray-300 truncate">{resource.description}</p>
-                              )}
+                              <p className="text-[10px] text-gray-400 truncate">{skill.description}</p>
                             </div>
                           </div>
-                          <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 flex-shrink-0" />
-                        </a>
-                      );
-                    })}
-                  </div>
+                          <ChevronRight className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-300 flex-shrink-0 ${isSkillOpen ? 'rotate-90' : ''}`} />
+                        </button>
+
+                        <div className={`overflow-hidden transition-all duration-500 ease-out ${isSkillOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                          <div className="px-4 pb-4">
+                            {skill.type === 'ready' && skill.url ? (
+                              <a
+                                href={skill.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-between p-3 bg-black text-white rounded-xl hover:bg-gray-900 transition-colors"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <Terminal className="w-3.5 h-3.5 opacity-70" />
+                                  <span className="text-xs font-bold">Открыть на GitHub</span>
+                                </div>
+                                <ExternalLink className="w-3.5 h-3.5 opacity-50" />
+                              </a>
+                            ) : skill.prompt ? (
+                              <div className="bg-gray-50 rounded-xl p-3.5">
+                                <p className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest mb-2">Промпт для создания:</p>
+                                <p className="text-[11px] text-gray-700 leading-relaxed">{skill.prompt}</p>
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
           </div>
         );
 

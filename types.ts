@@ -75,3 +75,12 @@ export interface WorkshopTool {
   description: string;
   resources: WorkshopResource[];
 }
+
+export interface WorkshopSkill {
+  id: string;
+  title: string;
+  description: string;
+  type: 'ready' | 'diy';
+  url?: string;
+  prompt?: string;
+}
