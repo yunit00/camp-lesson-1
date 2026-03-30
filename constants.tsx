@@ -915,48 +915,6 @@ export const WORKSHOP_TOOLS: WorkshopTool[] = [
 
 export const WORKSHOP_SKILLS: WorkshopSkill[] = [
   {
-    id: 'revealjs-slides',
-    title: 'Презентации (RevealJS)',
-    description: 'Генерация слайдов по текстовому запросу через RevealJS.',
-    type: 'ready',
-    url: 'https://github.com/ryanbbrown/revealjs-skill'
-  },
-  {
-    id: 'visual-explainer',
-    title: 'Visual Explainer',
-    description: 'Объяснение сложных тем в виде аккуратных HTML-страниц с CSS-паттернами.',
-    type: 'ready',
-    url: 'https://github.com/nicobailon/visual-explainer'
-  },
-  {
-    id: 'ai-website-cloner',
-    title: 'AI Website Cloner',
-    description: 'Реверс-инжиниринг и пиксель-перфектное воссоздание сайтов через Claude Code.',
-    type: 'ready',
-    url: 'https://github.com/JCodesMore/ai-website-cloner-template'
-  },
-  {
-    id: 'task-proof-loop',
-    title: 'Task Proof Loop',
-    description: 'Структурированное выполнение задач: спецификация → сборка → доказательство → верификация.',
-    type: 'ready',
-    url: 'https://github.com/DenisSergeevitch/repo-task-proof-loop'
-  },
-  {
-    id: 'writing-guru',
-    title: 'Writing Guru',
-    description: 'Выбор нарративной стратегии перед написанием текста — 25 типов, 204 комбинации.',
-    type: 'ready',
-    url: 'https://github.com/alenazaharovaux/share/tree/main/skills/writing-guru'
-  },
-  {
-    id: 'superpowers',
-    title: 'Superpowers',
-    description: 'Фреймворк агентных навыков: брейншторм, планирование, TDD, код-ревью.',
-    type: 'ready',
-    url: 'https://github.com/obra/superpowers'
-  },
-  {
     id: 'skill-creator',
     title: 'Skill Creator',
     description: 'Создание новых скиллов, улучшение существующих и оценка их производительности.',
@@ -964,18 +922,11 @@ export const WORKSHOP_SKILLS: WorkshopSkill[] = [
     url: 'https://github.com/anthropics/skills/tree/main/skills/skill-creator'
   },
   {
-    id: 'frontend-design',
-    title: 'Frontend Design',
-    description: 'Production-готовые фронтенд-интерфейсы с высоким качеством дизайна без шаблонной AI-эстетики.',
+    id: 'superpowers',
+    title: 'Superpowers',
+    description: 'Фреймворк агентных навыков: брейншторм, планирование, TDD, код-ревью.',
     type: 'ready',
-    url: 'https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design/skills/frontend-design'
-  },
-  {
-    id: 'playwright-skill',
-    title: 'Playwright',
-    description: 'Автономное написание и запуск Playwright-тестов для автоматизации браузера.',
-    type: 'ready',
-    url: 'https://github.com/lackeyjb/playwright-skill'
+    url: 'https://github.com/obra/superpowers'
   },
   {
     id: 'mcp-builder',
@@ -990,6 +941,55 @@ export const WORKSHOP_SKILLS: WorkshopSkill[] = [
     description: 'Написание точных промптов для любого AI-инструмента с аудитом эффективности токенов.',
     type: 'ready',
     url: 'https://github.com/nidhinjs/prompt-master'
+  },
+  {
+    id: 'frontend-design',
+    title: 'Frontend Design',
+    description: 'Production-готовые фронтенд-интерфейсы с высоким качеством дизайна без шаблонной AI-эстетики.',
+    type: 'ready',
+    url: 'https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design/skills/frontend-design'
+  },
+  {
+    id: 'ai-website-cloner',
+    title: 'AI Website Cloner',
+    description: 'Реверс-инжиниринг и пиксель-перфектное воссоздание сайтов через Claude Code.',
+    type: 'ready',
+    url: 'https://github.com/JCodesMore/ai-website-cloner-template'
+  },
+  {
+    id: 'visual-explainer',
+    title: 'Visual Explainer',
+    description: 'Объяснение сложных тем в виде аккуратных HTML-страниц с CSS-паттернами.',
+    type: 'ready',
+    url: 'https://github.com/nicobailon/visual-explainer'
+  },
+  {
+    id: 'writing-guru',
+    title: 'Writing Guru',
+    description: 'Выбор нарративной стратегии перед написанием текста — 25 типов, 204 комбинации.',
+    type: 'ready',
+    url: 'https://github.com/alenazaharovaux/share/tree/main/skills/writing-guru'
+  },
+  {
+    id: 'revealjs-slides',
+    title: 'Презентации (RevealJS)',
+    description: 'Генерация слайдов по текстовому запросу через RevealJS.',
+    type: 'ready',
+    url: 'https://github.com/ryanbbrown/revealjs-skill'
+  },
+  {
+    id: 'playwright-skill',
+    title: 'Playwright',
+    description: 'Автономное написание и запуск Playwright-тестов для автоматизации браузера.',
+    type: 'ready',
+    url: 'https://github.com/lackeyjb/playwright-skill'
+  },
+  {
+    id: 'task-proof-loop',
+    title: 'Task Proof Loop',
+    description: 'Структурированное выполнение задач: спецификация → сборка → доказательство → верификация.',
+    type: 'ready',
+    url: 'https://github.com/DenisSergeevitch/repo-task-proof-loop'
   }
 ];
 
