@@ -955,6 +955,41 @@ export const WORKSHOP_SKILLS: WorkshopSkill[] = [
     description: 'Фреймворк агентных навыков: брейншторм, планирование, TDD, код-ревью.',
     type: 'ready',
     url: 'https://github.com/obra/superpowers'
+  },
+  {
+    id: 'skill-creator',
+    title: 'Skill Creator',
+    description: 'Создание новых скиллов, улучшение существующих и оценка их производительности.',
+    type: 'ready',
+    url: 'https://github.com/anthropics/skills/tree/main/skills/skill-creator'
+  },
+  {
+    id: 'frontend-design',
+    title: 'Frontend Design',
+    description: 'Production-готовые фронтенд-интерфейсы с высоким качеством дизайна без шаблонной AI-эстетики.',
+    type: 'ready',
+    url: 'https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design/skills/frontend-design'
+  },
+  {
+    id: 'playwright-skill',
+    title: 'Playwright',
+    description: 'Автономное написание и запуск Playwright-тестов для автоматизации браузера.',
+    type: 'ready',
+    url: 'https://github.com/lackeyjb/playwright-skill'
+  },
+  {
+    id: 'mcp-builder',
+    title: 'MCP Builder',
+    description: 'Создание качественных MCP-серверов для подключения LLM к внешним сервисам.',
+    type: 'ready',
+    url: 'https://github.com/anthropics/skills/tree/main/skills/mcp-builder'
+  },
+  {
+    id: 'prompt-master',
+    title: 'Prompt Master',
+    description: 'Написание точных промптов для любого AI-инструмента с аудитом эффективности токенов.',
+    type: 'ready',
+    url: 'https://github.com/nidhinjs/prompt-master'
   }
 ];
 
