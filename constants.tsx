@@ -1018,4 +1018,12 @@ export const MICRO_LESSONS: MicroLesson[] = [
     duration: 'Видео',
     tag: 'Инструменты'
   },
+  {
+    id: 'telegram-proxy',
+    title: 'Настраиваем Proxy для быстрой работы Telegram',
+    description: 'Пошаговая настройка прокси для стабильной и быстрой работы Telegram. Полезно, если мессенджер работает медленно или с перебоями.',
+    youtubeId: '7z9J7mfRZ3E',
+    duration: 'Видео',
+    tag: 'Инструменты'
+  },
 ];

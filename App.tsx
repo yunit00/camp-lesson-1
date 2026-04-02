@@ -1091,41 +1091,81 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Remaining lessons — 2 column grid */}
-                {MICRO_LESSONS.length > 1 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {MICRO_LESSONS.slice(1).map((lesson) => (
-                      <div
-                        key={lesson.id}
-                        className="bg-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-black hover:shadow-xl transition-all"
-                      >
-                        <div className="aspect-video">
-                          <iframe
-                            src={`https://www.youtube.com/embed/${lesson.youtubeId}`}
-                            title={lesson.title}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            loading="lazy"
-                            className="w-full h-full"
-                          />
-                        </div>
-                        <div className="p-6">
-                          <div className="flex items-center gap-3 mb-3">
-                            <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-gray-100 text-gray-600">
-                              {lesson.tag}
-                            </span>
-                            <span className="flex items-center gap-1 text-[10px] font-mono text-gray-400">
-                              <Clock className="w-3 h-3" />
-                              {lesson.duration}
-                            </span>
+                {/* Middle lessons — 2 column grid */}
+                {MICRO_LESSONS.length > 2 && (() => {
+                  const middle = MICRO_LESSONS.slice(1);
+                  const hasOdd = middle.length % 2 !== 0;
+                  const gridLessons = hasOdd ? middle.slice(0, -1) : middle;
+                  const lastLesson = hasOdd ? middle[middle.length - 1] : null;
+
+                  return (
+                    <>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {gridLessons.map((lesson) => (
+                          <div
+                            key={lesson.id}
+                            className="bg-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-black hover:shadow-xl transition-all"
+                          >
+                            <div className="aspect-video">
+                              <iframe
+                                src={`https://www.youtube.com/embed/${lesson.youtubeId}`}
+                                title={lesson.title}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                loading="lazy"
+                                className="w-full h-full"
+                              />
+                            </div>
+                            <div className="p-6">
+                              <div className="flex items-center gap-3 mb-3">
+                                <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-gray-100 text-gray-600">
+                                  {lesson.tag}
+                                </span>
+                                <span className="flex items-center gap-1 text-[10px] font-mono text-gray-400">
+                                  <Clock className="w-3 h-3" />
+                                  {lesson.duration}
+                                </span>
+                              </div>
+                              <h4 className="font-bold text-lg mb-2">{lesson.title}</h4>
+                              <p className="text-sm text-gray-500 leading-relaxed">{lesson.description}</p>
+                            </div>
                           </div>
-                          <h4 className="font-bold text-lg mb-2">{lesson.title}</h4>
-                          <p className="text-sm text-gray-500 leading-relaxed">{lesson.description}</p>
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                )}
+
+                      {/* Last lesson full-width when odd count */}
+                      {lastLesson && (
+                        <div className="bg-white border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-black hover:shadow-xl transition-all">
+                          <div className="flex flex-col lg:flex-row">
+                            <div className="aspect-video lg:w-3/5 flex-shrink-0">
+                              <iframe
+                                src={`https://www.youtube.com/embed/${lastLesson.youtubeId}`}
+                                title={lastLesson.title}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                loading="lazy"
+                                className="w-full h-full"
+                              />
+                            </div>
+                            <div className="p-6 lg:p-8 flex flex-col justify-center">
+                              <div className="flex items-center gap-3 mb-3">
+                                <span className="text-[10px] font-mono font-black px-2 py-1 rounded bg-gray-100 text-gray-600">
+                                  {lastLesson.tag}
+                                </span>
+                                <span className="flex items-center gap-1 text-[10px] font-mono text-gray-400">
+                                  <Clock className="w-3 h-3" />
+                                  {lastLesson.duration}
+                                </span>
+                              </div>
+                              <h4 className="font-black text-2xl mb-3 tracking-tight">{lastLesson.title}</h4>
+                              <p className="text-sm text-gray-500 leading-relaxed">{lastLesson.description}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  );
+                })()}
               </div>
             ) : (
               <div className="bg-white border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center">
