@@ -990,6 +990,13 @@ export const WORKSHOP_SKILLS: WorkshopSkill[] = [
     description: 'Структурированное выполнение задач: спецификация → сборка → доказательство → верификация.',
     type: 'ready',
     url: 'https://github.com/DenisSergeevitch/repo-task-proof-loop'
+  },
+  {
+    id: 'humanizer',
+    title: 'Humanizer',
+    description: 'Убирает признаки AI-текста: 29 паттернов, калибровка под ваш голос, двойной проход с аудитом.',
+    type: 'ready',
+    url: 'https://github.com/blader/humanizer'
   }
 ];
 
