@@ -862,7 +862,7 @@ export default function App() {
                 <div className="space-y-3">
                   {[
                     { name: 'SMSFast', desc: 'Быстрые виртуальные номера для верификации', url: 'https://smsfast.io' },
-                    { name: 'SMS-Activate', desc: 'Крупнейший агрегатор номеров из 190+ стран', url: 'https://sms-activate.org' },
+                    { name: 'Hero SMS', desc: 'Виртуальные номера для верификации аккаунтов', url: 'https://hero-sms.com' },
                     { name: 'ONLINESIM', desc: 'Виртуальные номера и аренда на длительный срок', url: 'https://onlinesim.io' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
