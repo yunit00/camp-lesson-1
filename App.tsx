@@ -781,14 +781,45 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Card 3: AI без VPN */}
+              {/* Card 3: Виртуальные номера */}
+              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                    <Smartphone className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black">3. Виртуальные номера</h3>
+                    <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Для регистрации и верификации</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+                  Если сервис требует номер телефона для регистрации или подтверждения — виртуальный номер принимает SMS без реальной SIM-карты.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { name: 'SMSFast', desc: 'Быстрые виртуальные номера для верификации', url: 'https://smsfast.io' },
+                    { name: 'Hero SMS', desc: 'Виртуальные номера для верификации аккаунтов', url: 'https://hero-sms.com' },
+                    { name: 'ONLINESIM', desc: 'Виртуальные номера и аренда на длительный срок', url: 'https://onlinesim.io' },
+                  ].map((item, i) => (
+                    <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
+                      <div>
+                        <p className="font-bold text-sm">{item.name}</p>
+                        <p className="text-[10px] text-gray-400 group-hover:text-gray-300">{item.desc}</p>
+                      </div>
+                      <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Card 4: AI без VPN */}
               <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
                     <Globe className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black">3. AI без VPN</h3>
+                    <h3 className="text-xl font-black">4. AI без VPN</h3>
                     <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Без зарубежных аккаунтов</p>
                   </div>
                 </div>
@@ -811,14 +842,14 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Card 4: Инструкции и лайфхаки */}
+              {/* Card 5: Инструкции и промо */}
               <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
                     <Gift className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black">4. Инструкции и промо</h3>
+                    <h3 className="text-xl font-black">5. Инструкции и промо</h3>
                     <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Гайды и лайфхаки</p>
                   </div>
                 </div>
@@ -840,37 +871,6 @@ export default function App() {
                         <p className="text-[10px] text-gray-400 group-hover:text-gray-300">{item.desc}</p>
                       </div>
                       <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 flex-shrink-0 ml-2" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Card 5: Виртуальные номера */}
-              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
-                    <Smartphone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black">5. Виртуальные номера</h3>
-                    <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Для регистрации и верификации</p>
-                  </div>
-                </div>
-                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
-                  Если сервис требует номер телефона для регистрации или подтверждения — виртуальный номер принимает SMS без реальной SIM-карты.
-                </p>
-                <div className="space-y-3">
-                  {[
-                    { name: 'SMSFast', desc: 'Быстрые виртуальные номера для верификации', url: 'https://smsfast.io' },
-                    { name: 'Hero SMS', desc: 'Виртуальные номера для верификации аккаунтов', url: 'https://hero-sms.com' },
-                    { name: 'ONLINESIM', desc: 'Виртуальные номера и аренда на длительный срок', url: 'https://onlinesim.io' },
-                  ].map((item, i) => (
-                    <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
-                      <div>
-                        <p className="font-bold text-sm">{item.name}</p>
-                        <p className="text-[10px] text-gray-400 group-hover:text-gray-300">{item.desc}</p>
-                      </div>
-                      <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
                     </a>
                   ))}
                 </div>
