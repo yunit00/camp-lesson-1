@@ -260,7 +260,7 @@ export default function App() {
 
               <section className="space-y-4">
                 <p className="text-xl lg:text-2xl font-medium leading-snug tracking-tight text-gray-900">
-                  В ближайший 28 дней мы докажем, что ИИ – это мощный соавтор и компаньон. 
+                  В ближайшие 28 дней мы докажем, что ИИ – это мощный соавтор и компаньон. 
                 </p>
                 <p className="text-gray-600 text-base lg:text-lg leading-relaxed border-l-2 border-black pl-6 py-1">
                   Мы здесь для практики: через голос, руки и AI-мышление вы научитесь собирать работающие продукты буквально за вечер и проектировать собственную систему личной эффективности.
