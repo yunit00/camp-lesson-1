@@ -758,6 +758,7 @@ export default function App() {
                     { name: 'Zarub.io', desc: 'Виртуальные карты для арбитража и сервисов', url: 'https://zarub.io' },
                     { name: 'Zambulay', desc: 'Предоплаченные Visa/Mastercard', url: 'https://zambulay.com' },
                     { name: 'ZeePay', desc: 'Турецкий финтех-кошелек', url: 'https://zeepay.com.tr/en' },
+                    { name: 'Karta', desc: 'Visa-карта через Telegram-бот, пополнение криптой', url: 'https://t.me/karta' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div>
