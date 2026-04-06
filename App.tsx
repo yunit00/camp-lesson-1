@@ -757,8 +757,6 @@ export default function App() {
                   {[
                     { name: 'Zarub.io', desc: 'Виртуальные карты для арбитража и сервисов', url: 'https://zarub.io' },
                     { name: 'Zambulay', desc: 'Предоплаченные Visa/Mastercard', url: 'https://zambulay.com' },
-                    { name: 'ZeePay', desc: 'Турецкий финтех-кошелек', url: 'https://zeepay.com.tr/en' },
-                    { name: 'Karta', desc: 'Visa-карта через Telegram-бот, пополнение криптой', url: 'https://t.me/karta' },
                   ].map((item, i) => (
                     <a key={i} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                       <div>
@@ -768,17 +766,26 @@ export default function App() {
                       <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
                     </a>
                   ))}
-                </div>
-                <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-2xl">
-                  <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
+                  <a href="https://zeepay.com.tr/en" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                     <div>
-                      <p className="text-[11px] text-amber-800 font-medium">Это сложный метод. Требует верификации и понимания нюансов пополнения.</p>
-                      <a href="https://4pda.to/forum/index.php?showtopic=1103981" target="_blank" rel="noreferrer" className="text-[10px] text-amber-600 hover:text-amber-800 underline mt-1 inline-block">
-                        Обсуждение ZeePay на 4PDA →
-                      </a>
+                      <p className="font-bold text-sm">ZeePay</p>
+                      <p className="text-[10px] text-gray-400 group-hover:text-gray-300">Турецкий финтех-кошелек</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                  </a>
+                  <div className="px-1">
+                    <div className="flex items-start gap-2 text-[10px] text-amber-700">
+                      <AlertTriangle className="w-3 h-3 mt-0.5 flex-shrink-0 text-amber-500" />
+                      <span>Сложный метод — требует верификации и понимания нюансов пополнения. <a href="https://4pda.to/forum/index.php?showtopic=1103981" target="_blank" rel="noreferrer" className="underline hover:text-amber-900" onClick={e => e.stopPropagation()}>Обсуждение на 4PDA →</a></span>
                     </div>
                   </div>
+                  <a href="https://t.me/karta" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
+                    <div>
+                      <p className="font-bold text-sm">Karta</p>
+                      <p className="text-[10px] text-gray-400 group-hover:text-gray-300">Visa-карта через Telegram-бот, пополнение криптой</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                  </a>
                 </div>
               </div>
 
