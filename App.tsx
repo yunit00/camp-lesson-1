@@ -875,61 +875,52 @@ export default function App() {
                   ))}
                 </div>
               </div>
-            </div>
 
-            {/* Additional Resources Section */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-[2.5rem] p-10">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-black">Полезные статьи</h3>
-                  <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Подробные инструкции от комьюнити</p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a href="https://vc.ru/services/2294983-kak-nastroit-chatgpt-i-podpisku-v-rossii" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className="font-bold text-sm mb-1 group-hover:underline">Настройка ChatGPT в РФ</p>
-                      <p className="text-[10px] text-gray-400">Базовый гайд по VPN и регистрации</p>
-                      <p className="text-[9px] text-gray-300 mt-2 font-mono">VC.RU</p>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-black" />
-                  </div>
-                </a>
-
-                <a href="https://habr.com/ru/articles/976072/" target="_blank" rel="noreferrer" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-black hover:shadow-lg transition-all">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className="font-bold text-sm mb-1 group-hover:underline">Claude Code без рисков</p>
-                      <p className="text-[10px] text-gray-400">Как избегать банов за "подозрительную активность"</p>
-                      <p className="text-[9px] text-gray-300 mt-2 font-mono">HABR</p>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-black" />
-                  </div>
-                </a>
-              </div>
-
-              {/* ChatGPT Go Instructions */}
-              <div className="mt-8 p-6 bg-gray-50 rounded-2xl border border-gray-200">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Sparkles className="w-5 h-5 text-white" />
+              {/* Card 6: Полезные статьи */}
+              <div className="bg-white border-2 border-gray-100 rounded-[2.5rem] p-10 hover:border-black transition-all hover:shadow-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm mb-2">Как получить ChatGPT Go бесплатно на год</h4>
-                    <ol className="text-[11px] text-gray-600 space-y-1.5 list-decimal list-inside">
-                      <li>Включить VPN с локацией Индия</li>
-                      <li>Зарегистрировать новый аккаунт в ChatGPT</li>
-                      <li>Увидеть баннер "Upgrade to ChatGPT Go for free"</li>
-                    </ol>
-                    <p className="text-[10px] text-amber-700 mt-3 flex items-center gap-1.5">
-                      <AlertTriangle className="w-3 h-3" />
-                      Иногда просит карту для верификации (списание 0 рупий)
-                    </p>
+                    <h3 className="text-xl font-black">6. Полезные статьи</h3>
+                    <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Подробные инструкции от комьюнити</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+                  Гайды от комьюнити — как обойти блокировки, получить бесплатный доступ и не попасть под бан.
+                </p>
+                <div className="space-y-3">
+                  <a href="https://vc.ru/services/2294983-kak-nastroit-chatgpt-i-podpisku-v-rossii" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
+                    <div>
+                      <p className="font-bold text-sm">Настройка ChatGPT в РФ</p>
+                      <p className="text-[10px] text-gray-400 group-hover:text-gray-300">Базовый гайд по VPN и регистрации · VC.RU</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                  </a>
+                  <a href="https://habr.com/ru/articles/976072/" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
+                    <div>
+                      <p className="font-bold text-sm">Claude Code без рисков</p>
+                      <p className="text-[10px] text-gray-400 group-hover:text-gray-300">Как избегать банов за подозрительную активность · HABR</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                  </a>
+                </div>
+                <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-2xl">
+                  <div className="flex items-start gap-3">
+                    <Sparkles className="w-4 h-4 text-black mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-[11px] text-gray-700 font-medium mb-1">Как получить ChatGPT Go бесплатно на год</p>
+                      <ol className="text-[10px] text-gray-500 space-y-1 list-decimal list-inside">
+                        <li>Включить VPN с локацией Индия</li>
+                        <li>Зарегистрировать новый аккаунт в ChatGPT</li>
+                        <li>Увидеть баннер "Upgrade to ChatGPT Go for free"</li>
+                      </ol>
+                      <p className="text-[10px] text-amber-600 mt-2 flex items-center gap-1">
+                        <AlertTriangle className="w-3 h-3" />
+                        Иногда просит карту для верификации (списание 0 рупий)
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
