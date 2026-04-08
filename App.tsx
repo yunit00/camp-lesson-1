@@ -835,10 +835,17 @@ export default function App() {
                   Если вам не принципиально иметь аккаунт именно на сайте OpenAI или Anthropic, а нужен просто доступ к моделям.
                 </p>
                 <div className="space-y-3">
-                  <a href="https://gptunnel.ru" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all border border-gray-200">
+                  <a href="https://gptunnel.ru" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
                     <div>
                       <p className="font-bold text-sm">GPTunnel</p>
-                      <p className="text-[10px] text-gray-500 group-hover:text-gray-300">Российский сервис-прокладка</p>
+                      <p className="text-[10px] text-gray-400 group-hover:text-gray-300">Российский сервис-прокладка к ChatGPT, Claude и Midjourney</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
+                  </a>
+                  <a href="https://bothub.ru" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 bg-gray-50 rounded-2xl group hover:bg-black hover:text-white transition-all">
+                    <div>
+                      <p className="font-bold text-sm">BothHub</p>
+                      <p className="text-[10px] text-gray-400 group-hover:text-gray-300">Агрегатор AI-моделей без подписки: текст, код, изображения, транскрибация</p>
                     </div>
                     <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100" />
                   </a>
