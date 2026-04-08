@@ -997,6 +997,13 @@ export const WORKSHOP_SKILLS: WorkshopSkill[] = [
     description: 'Убирает признаки AI-текста: 29 паттернов, калибровка под ваш голос, двойной проход с аудитом.',
     type: 'ready',
     url: 'https://github.com/blader/humanizer'
+  },
+  {
+    id: 'publora',
+    title: 'Publora',
+    description: 'Публикация в 10 соцсетей из Claude: LinkedIn, Telegram, Instagram, TikTok, X, YouTube и другие. Аналитика и контент-календарь.',
+    type: 'ready',
+    url: 'https://github.com/publora/skills'
   }
 ];
 
